@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<QuanLyNhaThuoc.Models.SanPham>
 @{
     ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_LayoutSideBar.cshtml";
+    Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
 }
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -81,14 +81,15 @@
             flex-wrap: wrap;
         }
         .col-4 {
-            margin: 5px 5px;
             flex-basis: 23%;
-            padding: 5px 20px;
+            margin: 10px 10px;
+            padding: 10px 20px;
             min-width: 200px;
+            margin-top:10px;
             margin-bottom: 30px;
             transition: transform 0.6s;
             width: 200px;
-            height: 300px;
+            min-height: 350px;
             background: white;
             border: 5px double #1559b2;
             display: flex;

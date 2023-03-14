@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="margin-left:100px;">
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -30,20 +30,83 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        <div>
-            <div class="side-bar" style="height: 500px;width: 20%; float:left;">
-                Sidebar Admin
-            </div>
-            <div class="content" style="width: 80%; float: left">
-                @RenderBody()
-            </div>
+    @*link css + link icon*@
+    <link rel="stylesheet" href="~/Content/Admin-css/style-sidebar_navigation.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    @* -------------------*@
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxs-heart'></i>
+                <div class="logo_name">Hello Diet</div>
+            </div> <i class='bx bx-menu' id='btn'></i>
         </div>
-        <hr />
-        <footer>
-            </p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <div class="src">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search..">
+        </div>
+        <ul class="nav">
+            <li>
+                <a href="#">
+                    <i class='bx bx-bar-chart-square'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="link_name">Workout Statistic</span>
+                </a>
+                <span class="tooltip">Workout Statistic</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="link_name">Workout Plan</span>
+                </a>
+                <span class="tooltip">Workout Plan</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bolt'></i>
+                    <span class="link_name">Distance Map</span>
+                </a>
+                <span class="tooltip">Distance Map</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-heart-circle'></i>
+                    <span class="link_name">Diet Food Menu</span>
+                </a>
+                <span class="tooltip">Diet Food Menu</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pie-chart-alt'></i>
+                    <span class="link_name">Personal Record</span>
+                </a>
+                <span class="tooltip">Personal Record</span>
+            </li>
+        </ul>
     </div>
+    <div class="content" style="width: 93%; margin-left:100px;">
+        @RenderBody()
+    </div>
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let srcBtn = document.querySelector(".bx-search");
+
+        btn.onclick = function () { sidebar.classList.toggle("active"); };
+        srcBtn.onclick = function () { sidebar.classList.toggle("active"); };
+    </script>
+        
+    <hr />
+    <footer style="margin-left:120px;">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

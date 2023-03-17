@@ -117,6 +117,9 @@ C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuo
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddModel.resources
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddFKChiTietHoaDon.resources
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddFKNhaSX.resources
+<<<<<<< HEAD
+C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.CapNhatDiaChi.resources
+=======
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\bin\QuanLyNhaThuoc.dll.config
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\bin\QuanLyNhaThuoc.dll
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\bin\QuanLyNhaThuoc.pdb
@@ -236,3 +239,5 @@ D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.csproj.Cor
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.csproj.CopyComplete
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.dll
 D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.pdb
+>>>>>>> 7748051acacebf2cdc392493bc4680a8fe530382
+D:\LapTrinhWeb\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.CapNhatDiaChi.resources

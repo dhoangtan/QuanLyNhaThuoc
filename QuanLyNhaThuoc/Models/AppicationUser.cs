@@ -12,6 +12,7 @@ namespace QuanLyNhaThuoc.Models
     {
         [Required]
         public int Role { get; set; }
+        public string DiaChi { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

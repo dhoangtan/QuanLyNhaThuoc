@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SanPhamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +203,10 @@
     <Compile Include="Migrations\202303091807545_AddFKNhaSX.cs" />
     <Compile Include="Migrations\202303091807545_AddFKNhaSX.designer.cs">
       <DependentUpon>202303091807545_AddFKNhaSX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303171359364_CapNhatDiaChi.cs" />
+    <Compile Include="Migrations\202303171359364_CapNhatDiaChi.designer.cs">
+      <DependentUpon>202303171359364_CapNhatDiaChi.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -343,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303091807545_AddFKNhaSX.resx">
       <DependentUpon>202303091807545_AddFKNhaSX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303171359364_CapNhatDiaChi.resx">
+      <DependentUpon>202303171359364_CapNhatDiaChi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

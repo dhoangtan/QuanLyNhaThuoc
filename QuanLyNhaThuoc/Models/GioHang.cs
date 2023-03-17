@@ -14,5 +14,6 @@ namespace QuanLyNhaThuoc.Models
         public string MaNguoiDung { get; set; }
         [Required]
         public DateTime NgayLap { get; set; }
+        public string DiaChi { get; set; }
     }
 }

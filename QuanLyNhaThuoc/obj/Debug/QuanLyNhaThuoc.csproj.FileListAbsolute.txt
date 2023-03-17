@@ -117,3 +117,4 @@ C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuo
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddModel.resources
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddFKChiTietHoaDon.resources
 C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.AddFKNhaSX.resources
+C:\Users\ASUS\source\repos\QuanLyNhaThuoc\QuanLyNhaThuoc\obj\Debug\QuanLyNhaThuoc.Migrations.CapNhatDiaChi.resources

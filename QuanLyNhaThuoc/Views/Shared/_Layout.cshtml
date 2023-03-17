@@ -22,10 +22,19 @@
                     <li>@Html.ActionLink("Admin", "Index", "SanPhams", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
-                 @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
+    <div class="banner">
+        <div class="col-2">
+            <img src="~/Content/Images/banner.png" alt="banner-img" />
+        </div>
+        <div class="col-2">
+            <h1>Nhà thuốc NewTyStore </h1>
+            <h1>Chung tay vì sức khỏe cộng đồng</h1>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -37,5 +46,49 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .banner {
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(0,0,255,1) 80%);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            min-width: 450px;
+        }
+
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 400px;
+        }
+
+            .col-2 img {
+                margin-left: 20%;
+                max-width: 70%;
+                height: 250px;
+                padding: 20px 10px;
+            }
+
+            .col-2 h1 {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin-right: 50px;
+                font-size: 25px;
+                color: white;
+                text-align: center;
+                min-width: 400px;
+            }
+   
+    </style>
 </body>
 </html>

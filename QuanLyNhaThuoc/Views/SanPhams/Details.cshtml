@@ -1,0 +1,55 @@
+﻿@model QuanLyNhaThuoc.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
+}
+<div>
+    <div class="row">
+        <div class="col-4">
+            <div>
+                <img src="@Html.DisplayFor(model => model.MoTa)" />
+            </div>
+        </div>
+        <div class="col-8">
+            <h2>@Html.DisplayFor(model => model.TenSanPham)</h2>
+            <hr />
+            <h3>@Html.DisplayFor(model => model.GiaBan)đ/@Html.DisplayFor(model => model.DonViTinh)</h3>
+            <h5>Loại sản phẩm: @Html.DisplayFor(model => model.LoaiSanPham.TenLoai) </h5>
+            <h5>Thành phần chính: @Html.DisplayFor(model => model.ThanhPhanChinh) </h5>
+            <h5>Độ tuổi: @Html.DisplayFor(model => model.DoTuoi) </h5>
+            <h5>Công dụng: @Html.DisplayFor(model => model.CongDung) </h5>
+            <h5>Số lượng: @Html.DisplayFor(model => model.SoLuong) </h5>
+            <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+            <button onclick="location.href='@Url.Action("Edit", "SanPhams", new {id= Model.MaSanPham} )'" class="btn btn-primary" type="button">Edit</button>
+            <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-primary" type="button">Back to List</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .row {
+        width: 65%;
+        margin-top: 10px;
+        margin-left: 10%;
+        padding: 30px 20px;
+        background: #ffffff;
+        border-radius: 5px;
+        border: 5px double #1559b2;
+    }
+    .col-4 img{
+        width:95%;
+    }
+    .col-8 h2{
+        color:#4800ff;
+    }
+    .col-8 h3{
+        margin-left:20px;
+        color: #ff6a00; 
+    }
+    .col-8 h5{
+        display:block;
+    }
+</style>

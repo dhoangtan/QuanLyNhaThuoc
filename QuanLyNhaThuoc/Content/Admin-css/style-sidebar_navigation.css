@@ -14,22 +14,22 @@ body {
 .sidebar {
     position: fixed;
     top:0;
-    width: 7%;
+    width: 100px;
     background: #ffffff;
     padding: 6px 16px;
     height: 100%;
     box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-out;
     overflow: hidden;
 }
 
     .sidebar.active {
-        width: 240px;
+        width: 280px;
     }
 
     .sidebar .logo_content .logo {
         display: flex;
-        color: #0b2997;
+        color: #dc3545;
         height: 50px;
         width: 200px;
         font-size: 30px;
@@ -52,10 +52,10 @@ body {
 
     .sidebar #btn {
         position: absolute;
-        color: b3b3b3;
+        color: #dc3545;
         left: 50%;
         top: 6px;
-        font-size: 20px;
+        font-size: 30px;
         height: 50px;
         width: 50px;
         text-align: center;
@@ -83,7 +83,7 @@ body {
             border-radius: 20px;
             outline: none;
             border: none;
-            background: #0b2997;
+            background: #dc3545;
             padding-left: 50px;
             font-size: 15px;
             color: #ffffff;
@@ -100,7 +100,7 @@ body {
         }
 
             .sidebar .src .bx-search:hover {
-                color: #0b2997;
+                color: #dc3545;
             }
 
                 .sidebar .src .bx-search:hover ~ input {
@@ -141,7 +141,7 @@ body {
             }
 
                 .sidebar ul li a:hover {
-                    color: #0b2997;
+                    color: #dc3545;
                     background: #e7e9f5;
                 }
 

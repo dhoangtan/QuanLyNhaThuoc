@@ -6,70 +6,71 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <main>
-    
-    <div class="small-container">
-        @foreach (var item in Model)
-        {
-                <div class="col-4">
-                    <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
-                    <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham) , "Details", new { id = item.MaSanPham})</h5>
-                    <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                    <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="#">
+                        <div class="card shadow-sm">
+                            <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <div class="card-body">
+                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="">
+                                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
+                                        <button onclick="" type="button" class="btn btn-sm btn-outline-secondary">Thêm</button>
+                                        <button onclick="" type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-        }
+                }
+            </div>
+        </div>
     </div>
     <style>
-        
-        .small-container {
-            margin: 70px 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .col-4 {
-            flex-basis: 23%;
-            margin: 5px 5px;
+        .card {
+            min-height: 300px;
+            position: static;
+            border: 3px double #808080;
+            border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
             padding: 10px 20px;
-            min-width: 200px;
-            margin-top:10px;
-            margin-bottom: 30px;
-            transition: transform 0.6s;
-            width: 200px;
-            min-height: 350px;
-            background: white;
-            border: 5px double #1559b2;
-            display: flex;
-            flex-direction: column;
-            border-radius: 20% 30% 10% 30% / 20% 30% 10% 30%;
-            justify-content:center;
-            align-items:center;
+            display:flex;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            transition: 1s;
         }
 
-            .col-4 img {
-                width: 65%;
+            .card img {
+                width: 80%;
                 margin-top: 5px;
-                border-radius: 50% 50% 50% 50% / 25% 25% 25% 25%;
+                cursor:pointer;
             }
 
-            .col-4:hover {
-                transform: translateY(-20px);
-            }
-        h5 a{
+        h5{
+            height:50px;
+        }
+        h5 a {
             color: #000000;
             font-size: 15px;
-            text-decoration:none;
+            text-decoration: none;
         }
-        h6{
+
+        h6 {
             color: rgba(0,0,255,1);
-            font-size:15px;
+            font-size: 15px;
         }
         .rating .fa {
             color: #ff523b;

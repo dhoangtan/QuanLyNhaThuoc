@@ -5,101 +5,73 @@
     Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>SanPham</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiSanPham.TenLoai)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiSanPham.TenLoai)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NhaSanXuat.TenNhaSanXuat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenSanPham)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenSanPham)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThanhPhanChinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThanhPhanChinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DoTuoi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DoTuoi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CongDung)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CongDung)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DonViTinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DonViTinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoLuong)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GiaBan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GiaBan)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <div class="">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <div>
+            <div class="row">
+                <h3>Are you sure you want to delete this?</h3>
+                <hr />
+                <div class="col-4">
+                    <div>
+                        <img src="@Html.DisplayFor(model => model.MoTa)" />
+                    </div>
+                </div>
+                <div class="col-8">
+                    <h2>@Html.DisplayFor(model => model.TenSanPham)</h2>
+                    <hr />
+                    <h3>@Html.DisplayFor(model => model.GiaBan)đ/@Html.DisplayFor(model => model.DonViTinh)</h3>
+                    <h5>Loại sản phẩm: @Html.DisplayFor(model => model.LoaiSanPham.TenLoai) </h5>
+                    <h5>Thành phần chính: @Html.DisplayFor(model => model.ThanhPhanChinh) </h5>
+                    <h5>Độ tuổi: @Html.DisplayFor(model => model.DoTuoi) </h5>
+                    <h5>Công dụng: @Html.DisplayFor(model => model.CongDung) </h5>
+                    <h5>Số lượng: @Html.DisplayFor(model => model.SoLuong) </h5>
+                    <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="">
+                            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+                            <button type="submit" value="Delete" class="btn btn-outline-danger bx bxs-delete"> Delete</button>
+                            <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-outline-dark bx bxs-s-square" type="button"> Cancel</button>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
-    }
-</div>
+        <style>
+            .row {
+                width: 65%;
+                margin-top: 10px;
+                margin-left: 10%;
+                padding: 30px 20px;
+                background: #ffffff;
+                border-radius: 5px;
+                border: 5px double #1559b2;
+            }
+
+            .col-4 img {
+                width: 95%;
+            }
+
+            .col-8 h2 {
+                color: #4800ff;
+            }
+
+            .col-8 h3 {
+                margin-left: 20px;
+                color: #ff6a00;
+            }
+
+            .col-8 h5 {
+                display: block;
+            }
+        </style>
+
+
+    </div>

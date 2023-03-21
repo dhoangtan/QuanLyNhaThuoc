@@ -109,7 +109,11 @@ namespace QuanLyNhaThuoc.Views.Home
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.sanPhams.Find(id);
+            SanPham sanPham = db.sanPhams
+                .Where(item => item.MaSanPham == id)
+                .Include(loai => loai.LoaiSanPham)
+                .Include(sanXuat => sanXuat.NhaSanXuat)
+                .First();
             if (sanPham == null)
             {
                 return HttpNotFound();

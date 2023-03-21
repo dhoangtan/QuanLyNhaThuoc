@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
+    <button onclick="location.href='@Url.Action("Index", "Home" )'" class="btn btn-outline-primary bx bx-arrow-back" type="button"> Back</button>
     <div class="row">
         <div class="col-4">
             <div>
@@ -23,7 +24,6 @@
             <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
         </div>
     </div>
-    <button onclick="location.href='@Url.Action("Index", "Home" )'" class="btn btn-primary" type="button">Back</button>
 </div>
 <style>
     .row {

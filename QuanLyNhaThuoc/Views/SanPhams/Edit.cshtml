@@ -96,11 +96,11 @@
             <img id="img_SP" src="@Html.DisplayFor(model =>model.MoTa)" alt="IMG_SanPham" />
         </div>
         <div class="row-2">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-outline-primary" />
+            <div class="">
+                <button type="submit" value="Save" class="btn btn-outline-primary bx bxs-save"> Save</button>
             </div>
             <div>
-                <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-outline-primary" type="button">Cancel</button>
+                <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-outline-dark bx bxs-x-square" type="button"> Cancel</button>
             </div>
         </div>
     </div>

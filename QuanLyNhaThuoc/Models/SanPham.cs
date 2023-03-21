@@ -26,5 +26,7 @@ namespace QuanLyNhaThuoc.Models
         public int SoLuong { get; set; }
         public string MoTa { get; set; }
         public long GiaBan { get; set; }
+        public int LuotMua { get; set; }
+        public int LuotXem { get; set; }
     }
 }

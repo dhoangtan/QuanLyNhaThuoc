@@ -25,11 +25,11 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
                                     <div class="">
                                         <input type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
-                                        <button onclick="" type="button" class="btn btn-sm btn-outline-secondary">Thêm</button>
-                                        <button onclick="" type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
+                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
                                     </div>
                                 </div>
                             </div>
@@ -47,6 +47,9 @@
             border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
             padding: 10px 20px;
             display:flex;
+        }
+        #functional-section{
+            margin-top: 10px;
         }
         .card:hover {
             transform: translateY(-10px);

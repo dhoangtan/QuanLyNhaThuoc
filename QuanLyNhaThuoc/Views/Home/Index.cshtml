@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QuanLyNhaThuoc.Models.SanPham>
+﻿@model QuanLyNhaThuoc.ViewModel.ViewIndexModel
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,28 +6,96 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <main>
-    <div class="album py-5 bg-light">
+    <br />
+    <hr />
+    <div class="flex-grow-1 fs-3 ms-5">
+        <i class="bx bxs-hot bx-tada text-danger"></i>
+        <span class="text-danger"> Truy cập nhiều</span>
+        <i class="bx bxs-hot bx-tada text-danger"></i>
+    </div>
+    <hr />
+    <div class="album py-5 bg-opacity-50">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
-                @foreach (var item in Model)
+            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
+                @foreach (var item in Model.Object1)
                 {
-                    <div class="#">
+                    <div class="card-item">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
-                            <div class="card-body">
+                            <div class="">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
                                 <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
                                 <div class="d-flex justify-content-between align-items-center" id="functional-section">
                                     <div class="">
-                                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
+                                        <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
+                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
+                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <hr />
+    <div class="flex-grow-1 fs-3 ms-5">
+        <i class="bx bx-trending-up bx-burst text-warning"></i>
+        <span class="bx bx-fade-up text-warning">  Bán chạy</span>
+        <i class="bx bx-trending-up bx-burst text-warning"></i>
+    </div>
+    <hr />
+    <div class="album py-5 bg-opacity-50">
+        <div class="container">
+            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
+                @foreach (var item in Model.Object2)
+                {
+                    <div class="card-item">
+                        <div class="card shadow-sm">
+                            <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <div class="">
+                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
+                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
+                                    <div class="">
+                                        <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
+                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
+                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="flex-grow-1 fs-3 ms-5">
+        <i class="bx bxs-basket bx-fade-left text-primary"></i>
+        <span class="bx-burst text-primary"> Sản phẩm</span>
+        <i class="bx bxs-basket bx-fade-right text-primary"></i>
+    </div>
+    <hr />
+    <div class="album py-5 bg-transparent">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
+                @foreach (var item in Model.Object3)
+                {
+                    <div class="card-item">
+                        <div class="card shadow-sm">
+                            <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <div class="">
+                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
+                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
+                                    <div class="">
+                                        <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
                                         <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
                                         <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
                                     </div>
@@ -40,43 +108,48 @@
         </div>
     </div>
     <style>
+        .card-item {
+            margin: 10px 20px;
+        }
+
         .card {
             min-height: 300px;
+            min-width: 250px;
             position: static;
             border: 3px double #808080;
             border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
-            padding: 10px 20px;
-            display:flex;
+            padding: 10px 0px 10px 20px;
+            display: flex;
         }
-        #functional-section{
-            margin-top: 10px;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            transition: 1s;
-        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                transition: 1s;
+            }
 
             .card img {
                 width: 80%;
-                margin-top: 5px;
-                cursor:pointer;
+                margin-top: 1px;
+                cursor: pointer;
             }
 
-        h5{
-            height:50px;
+        h5 {
+            height: 50px;
         }
-        h5 a {
-            color: #000000;
-            font-size: 15px;
-            text-decoration: none;
-        }
+
+            h5 a {
+                color: #000000;
+                font-size: 15px;
+                font: bold;
+                text-decoration: none;
+                display: block;
+            }
 
         h6 {
             color: rgba(0,0,255,1);
             font-size: 15px;
+            margin-left: 5px;
         }
-        .rating .fa {
-            color: #ff523b;
         }
     </style>
 </main>

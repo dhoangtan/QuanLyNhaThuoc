@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using QuanLyNhaThuoc.Models;
+using QuanLyNhaThuoc.ViewModel;
 
 namespace QuanLyNhaThuoc.Controllers
 {
@@ -16,8 +18,16 @@ namespace QuanLyNhaThuoc.Controllers
 
         public ActionResult Index()
         {
-            var sanPhams = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat);
-            return View(sanPhams.ToList());
+            var sanPhams = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s=>s.LuotXem).Take(8).ToList();
+            var sanPhams2 = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotMua).Take(8).ToList();
+            var sanPhams3 = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).ToList();
+            var viewIndexModel = new ViewIndexModel
+            {
+                Object1 = sanPhams,
+                Object2 = sanPhams2,
+                Object3 = sanPhams3
+            };
+            return View(viewIndexModel);
         }
 
         public ActionResult About()
@@ -47,6 +57,8 @@ namespace QuanLyNhaThuoc.Controllers
             {
                 return HttpNotFound();
             }
+            sanPham.LuotXem = sanPham.LuotXem + 1;
+            db.SaveChanges();
             return View(sanPham);
         }
     }

@@ -7,7 +7,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>NewTyStore</title>
+    <link rel="shortcut icon" href="~/Content/Images/banner.png" type="image/svg+xml">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -41,7 +42,6 @@
             </div>
         </div>
     </nav>
-    <div>
             <div class="banner">
                 <div class="col-2">
                     <img src="~/Content/Images/banner.png" alt="banner-img" />
@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="~/Content/Admin-css/style-sidebar_navigation.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @* -------------------*@
+
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -125,7 +126,8 @@
         btn.onclick = function () { sidebar.classList.toggle("active"); };
         srcBtn.onclick = function () { sidebar.classList.toggle("active"); };
     </script>
-    <div class="content" style=" margin-left:100px;">
+
+    <div class="content">
         @RenderBody()
     </div>
     <hr />
@@ -149,7 +151,7 @@
             font-family: "Poppins", sans-serif;
         }
         .content {
-            background: #BBD6B8;
+            padding-left: 100px;
         }
 
         .banner {

@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="shopping-cart">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/Admin-css/style-GioHang.css" />
+
+    <!-- Title -->
+    <div class="title">
+        Shopping Bag
+    </div>
+
+    <!-- Product #1 -->
+    <div class="item">
+        <div class="buttons">
+            <span class="delete-btn bx bxs-trash"></span>
+        </div>
+
+        <div class="image">
+            <img src="item-1.png" alt="" />
+        </div>
+
+        <div class="description">
+            <span>Common Projects</span>
+            <span>Bball High</span>
+            <span>White</span>
+        </div>
+
+        <div class="quantity">
+            <button class="plus-btn" type="button" name="button" onclick="addItem()">
+                <i class='bx bx-plus'></i>
+            </button>
+            <input id="num" type="number" name="name" value="1" disabled>
+            <button class="minus-btn" type="button" name="button" onclick="removeItem()">
+                <i class='bx bx-minus'></i>
+            </button>
+        </div>
+
+        <div class="total-price" id="total_price">$549</div>
+    </div>
+
+</div>
+@section scripts
+{
+    <script>
+        function addItem() {
+            let input = document.getElementById('num');
+            let priceDiv = document.getElementById('total_price');
+
+            input.stepUp();
+            priceDiv.innerHTML = input.value;
+        }
+
+        function removeItem() {
+            let input = document.getElementById('num');
+            let priceDiv = document.getElementById('total_price');
+
+            if (input.value <= 0)
+                return;
+
+            input.stepDown();
+            priceDiv.innerHTML = input.value;
+        }
+    </script>
+    
+}

@@ -4,12 +4,16 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutSideBar.cshtml";
 }
-<div>
-    <div class="btn btn-outline-primary" onclick="location.href='@Url.Action("Index", "Home" )'">
-        <i class="bx bx-arrow-back"></i>
-        <span> Back</span>
-    </div>
+
     <div class="row">
+        <div class="d-flex justify-content-between align-items-center" id="functional-section">
+            <div class="">
+                <div class="btn btn-outline-primary" onclick="location.href='@Url.Action("Index", "Home" )'">
+                    <i class="bx bx-arrow-back"></i>
+                    <span> Back</span>
+                </div>
+            </div>
+        </div>
         <div class="col-4">
             <div>
                 <img src="@Html.DisplayFor(model => model.MoTa)" />
@@ -26,8 +30,21 @@
             <h5>Số lượng: @Html.DisplayFor(model => model.SoLuong) </h5>
             <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
         </div>
+        <div class="d-flex justify-content-between align-items-center" id="functional-section">
+            <div class="">
+                <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(model=>model.SoLuong)">
+                <div class="btn btn-outline-success" onclick="">
+                    <i class="bx bx-cart-add"></i>
+                    <span></span>
+                </div>
+                <div class="btn btn-outline-danger" onclick="location.href='@Url.Action("GioHang", "Home")'">
+                    <i class="bx bx-cart-download"></i>
+                    <span> Buy</span>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
 <style>
     .row {
         width: 65%;

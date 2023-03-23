@@ -61,5 +61,15 @@ namespace QuanLyNhaThuoc.Controllers
             db.SaveChanges();
             return View(sanPham);
         }
+        public ActionResult GioHang()
+        {
+            return View();
+        }
+
+        public ActionResult MuaHang()
+        {
+
+            return View();
+        }
     }
 }

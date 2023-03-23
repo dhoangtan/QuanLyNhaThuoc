@@ -2,10 +2,13 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutSideBar.cshtml";
 }
 <div>
-    <button onclick="location.href='@Url.Action("Index", "Home" )'" class="btn btn-outline-primary bx bx-arrow-back" type="button"> Back</button>
+    <div class="btn btn-outline-primary" onclick="location.href='@Url.Action("Index", "Home" )'">
+        <i class="bx bx-arrow-back"></i>
+        <span> Back</span>
+    </div>
     <div class="row">
         <div class="col-4">
             <div>

@@ -23,8 +23,14 @@
             <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
         </div>
         <div class="d-grid gap-2 d-md-block">
-            <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-outline-primary bx bx-arrow-back" type="button"> Back</button>
-            <button onclick="location.href='@Url.Action("Edit", "SanPhams", new {id= Model.MaSanPham} )'" class="btn btn-outline-warning bx bxs-edit" type="button"> Edit</button>
+            <div class="btn btn-outline-primary" onclick="location.href='@Url.Action("Index", "SanPhams" )'">
+                <i class="bx bx-arrow-back"></i>
+                <span> Back</span>
+            </div>
+            <div class="btn btn-outline-warning" onclick="location.href='@Url.Action("Edit", "SanPhams", new {id= Model.MaSanPham} )'">
+                <i class="bx bxs-edit"></i>
+                <span> Edit</span>
+            </div>
         </div>
     </div>
 </div>

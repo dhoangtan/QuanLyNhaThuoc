@@ -1,19 +1,17 @@
 ﻿@model QuanLyNhaThuoc.ViewModel.ViewIndexModel
 @{
     ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutSideBar.cshtml";
 }
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <main>
     <br />
-    <hr />
-    <div class="flex-grow-1 fs-3 ms-5">
-        <i class="bx bxs-hot bx-tada text-danger"></i>
+    <div id="SP-Hot" class="fs-3 ms-5">
+        <i class="bx bxs-hot text-danger"></i>
         <span class="text-danger"> Truy cập nhiều</span>
-        <i class="bx bxs-hot bx-tada text-danger"></i>
+        <i class="bx bxs-hot text-danger"></i>
     </div>
-    <hr />
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
@@ -29,8 +27,14 @@
                                 <div class="d-flex justify-content-between align-items-center" id="functional-section">
                                     <div class="">
                                         <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
-                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
-                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
+                                        <div class="btn btn-outline-success" onclick="">
+                                            <i class="bx bx-cart-add"></i>
+                                            <span></span>
+                                        </div>
+                                        <div class="btn btn-outline-danger" onclick="">
+                                            <i class="bx bx-cart-download"></i>
+                                            <span> Buy</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -39,15 +43,13 @@
                 }
             </div>
         </div>
+        
     </div>
-    <br />
-    <hr />
-    <div class="flex-grow-1 fs-3 ms-5">
-        <i class="bx bx-trending-up bx-burst text-warning"></i>
-        <span class="bx bx-fade-up text-warning">  Bán chạy</span>
-        <i class="bx bx-trending-up bx-burst text-warning"></i>
+    <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
+        <i class='bx bxs-chart text-primary'></i>
+        <span class="text-primary">  Bán chạy</span>
+        <i class='bx bxs-chart text-primary'></i>
     </div>
-    <hr />
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
@@ -63,8 +65,14 @@
                                 <div class="d-flex justify-content-between align-items-center" id="functional-section">
                                     <div class="">
                                         <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
-                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
-                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
+                                        <div class="btn btn-outline-success" onclick="">
+                                            <i class="bx bx-cart-add"></i>
+                                            <span></span>
+                                        </div>
+                                        <div class="btn btn-outline-danger" onclick="">
+                                            <i class="bx bx-cart-download"></i>
+                                            <span> Buy</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,13 +82,11 @@
             </div>
         </div>
     </div>
-    <hr />
-    <div class="flex-grow-1 fs-3 ms-5">
-        <i class="bx bxs-basket bx-fade-left text-primary"></i>
-        <span class="bx-burst text-primary"> Sản phẩm</span>
-        <i class="bx bxs-basket bx-fade-right text-primary"></i>
+    <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
+        <i class="bx bxs-basket text-primary"></i>
+        <span class="text-primary"> Sản phẩm</span>
+        <i class="bx bxs-basket text-primary"></i>
     </div>
-    <hr />
     <div class="album py-5 bg-transparent">
         <div class="container">
             <div class="row row-cols-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
@@ -96,8 +102,14 @@
                                 <div class="d-flex justify-content-between align-items-center" id="functional-section">
                                     <div class="">
                                         <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
-                                        <button onclick="" type="button" class="btn btn-outline-success bx bx-cart-add"></button>
-                                        <button onclick="" type="button" class="btn btn-outline-danger bx bx-cart-download">Buy</button>
+                                        <div class="btn btn-outline-success" onclick="">
+                                            <i class="bx bx-cart-add"></i>
+                                            <span></span>
+                                        </div>
+                                        <div class="btn btn-outline-danger" onclick="">
+                                            <i class="bx bx-cart-download"></i>
+                                            <span> Buy</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -107,49 +119,51 @@
             </div>
         </div>
     </div>
-    <style>
-        .card-item {
-            margin: 10px 20px;
-        }
 
-        .card {
-            min-height: 300px;
-            min-width: 250px;
-            position: static;
-            border: 3px double #808080;
-            border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
-            padding: 10px 0px 10px 20px;
-            display: flex;
-        }
-
-            .card:hover {
-                transform: translateY(-10px);
-                transition: 1s;
-            }
-
-            .card img {
-                width: 80%;
-                margin-top: 1px;
-                cursor: pointer;
-            }
-
-        h5 {
-            height: 50px;
-        }
-
-            h5 a {
-                color: #000000;
-                font-size: 15px;
-                font: bold;
-                text-decoration: none;
-                display: block;
-            }
-
-        h6 {
-            color: rgba(0,0,255,1);
-            font-size: 15px;
-            margin-left: 5px;
-        }
-        }
-    </style>
 </main>
+<style>
+    .card-item {
+        margin: 10px 20px;
+    }
+
+    .card {
+        min-height: 300px;
+        min-width: 250px;
+        position: static;
+        border: 3px double #808080;
+        border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
+        padding: 10px 10px 10px 15px;
+        display: flex;
+    }
+
+        .card:hover {
+            transform: translateY(-10px);
+            transition: 1s;
+        }
+
+        .card img {
+            width: 80%;
+            margin-top: 1px;
+            cursor: pointer;
+        }
+
+    h5 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        h5 a {
+            color: #000000;
+            font-size: 15px;
+            font: bold;
+            text-decoration: none;
+            display: block;
+        }
+
+    h6 {
+        color: rgba(0,0,255,1);
+        font-size: 15px;
+        margin-left: 5px;
+    }
+</style>

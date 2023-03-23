@@ -12,7 +12,8 @@ body {
 
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 56px;
+    right: 0;
     width: 100px;
     background: #ffffff;
     padding: 6px 16px;
@@ -150,42 +151,44 @@ body {
         pointer-events: none;
         transition: all 0.5s ease;
     }
+
 .btn {
     font-family: "Poppins", sans-serif;
 }
-    .sidebar.active .link_name {
-        opacity: 1;
-        pointer-events: auto;
-    }
 
-    .sidebar ul li .tooltip {
-        position: absolute;
-        left: 130px;
-        top: 0;
-        transform: translate(-45%, -50%);
-        border-radius: 10px;
-        height: 35px;
-        width: 130px;
-        background: #ffffff;
-        line-height: 35px;
-        text-align: center;
-        font-size: 13px;
-        display: block;
-        color: #242424;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        pointer-events: none;
-        opacity: 0;
-        transition: all 0.5s ease;
-    }
+.sidebar.active .link_name {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    .sidebar.active ul li .tooltip {
-        display: none;
-    }
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 130px;
+    top: 0;
+    transform: translate(-45%, -50%);
+    border-radius: 10px;
+    height: 35px;
+    width: 130px;
+    background: #ffffff;
+    line-height: 35px;
+    text-align: center;
+    font-size: 13px;
+    display: block;
+    color: #242424;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
 
-    .sidebar ul li:hover .tooltip {
-        opacity: 1;
-        top: 50%;
-    }
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+    top: 50%;
+}
 
 .home_content {
     position: absolute;

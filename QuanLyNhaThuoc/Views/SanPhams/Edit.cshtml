@@ -8,23 +8,24 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="row">
-    <h2>
-        Cập nhật thông tin sản phẩm:
-    </h2>
-    <hr />
-    <div class="col-5">
+<div class="container-row justify-content-center">
+    <div class="">
+        <h2>
+            Cập nhật thông tin sản phẩm:
+        </h2>
+        <hr />
+    </div>
+    <div class="row row-cols-dm-1 row-cols-2 d-flex">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaSanPham)
-
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Tên sản phẩm</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenSanPham, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenSanPham, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Loại sản phẩm</span>
             <div class="col-md-10">
                 @Html.DropDownList("MaLoai", null, htmlAttributes: new { @class = "form-control" })
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Nhà sản xuất</span>
             <div class="col-md-10">
                 @Html.DropDownList("MaNhaSanXuat", null, htmlAttributes: new { @class = "form-control" })
@@ -40,7 +41,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Thành phần chính</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ThanhPhanChinh, new { htmlAttributes = new { @class = "form-control" } })
@@ -48,7 +49,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Độ tuổi chỉ định</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DoTuoi, new { htmlAttributes = new { @class = "form-control" } })
@@ -56,7 +57,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Công dụng</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CongDung, new { htmlAttributes = new { @class = "form-control" } })
@@ -64,30 +65,28 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Đơn vị tính</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DonViTinh, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DonViTinh, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <div class="col-5">
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Giá bán</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Số lượng</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <span class="control-label col-md-2">Link hình ảnh</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
@@ -95,37 +94,49 @@
             </div>
             <img id="img_SP" src="@Html.DisplayFor(model =>model.MoTa)" alt="IMG_SanPham" />
         </div>
-        <div class="row-2">
-            <div class="">
-                <button type="submit" value="Save" class="btn btn-outline-primary bx bxs-save"> Save</button>
-            </div>
+        <div class="d-flex align-items-center">
             <div>
-                <button onclick="location.href='@Url.Action("Index", "SanPhams" )'" class="btn btn-outline-dark bx bxs-x-square" type="button"> Cancel</button>
+                <button type="submit" value="Save" class="btn btn-outline-primary me-3 ">
+                    <i class="bx bxs-save"></i>
+                    <span> Save</span>
+                </button>
+            </div>
+            <div class="btn btn-outline-dark" onclick="location.href='@Url.Action("Index", "SanPhams" )'">
+                <i class="bx bxs-x-square"></i>
+                <span> Cancel</span>
             </div>
         </div>
     </div>
 </div>
-<style>
-    .row {
-        width: 80%;
-        margin:10px 7%;
-        padding: 30px 20px;
-        background: #ffffff;
-        border-radius: 5px;
-        border: 5px double #1559b2;
-    }
-    #img_SP{
-        width:200px;
-    }
-    .form-group span{
-        margin: 5px 10px;
-        font-size: 16px;
-        font: bold;
-    }
-    .row-2 div{
-        margin-bottom:5px;
-    }
-</style>
+    <style>
+        .container-row {
+            border-radius: 5px;
+            border: 5px double #1559b2;
+            width: 80%;
+            margin: 10px 7%;
+            padding: 30px 20px;
+            background: #ffffff;
+        }
+
+        #img_SP {
+            width: 80%;
+        }
+
+        .form-group {
+            max-width: 320px;
+            min-width: 250px;
+        }
+
+            .form-group span {
+                margin: 5px 10px;
+                font-size: 16px;
+                font: bold;
+            }
+
+        .row-2 div {
+            margin-bottom: 5px;
+        }
+    </style>
 }
 
 

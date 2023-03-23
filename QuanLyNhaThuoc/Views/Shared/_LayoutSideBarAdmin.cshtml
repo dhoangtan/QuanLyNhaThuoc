@@ -24,23 +24,36 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Admin", "Index", "SanPhams", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>
+                    <li>@Html.ActionLink("Admin", "Index", "SanPhams", new { area = "" }, new { @class = "btn btn-danger" }) </li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>*@
+                    @if (@Request.Url.AbsolutePath.Contains(@"/SanPhams"))
+                    {
+                        <li>
+                            <a class="btn btn-danger" href="/SanPhams/Create">
+                                <i class="bx bxs-add-to-queue"></i>
+                                <span> Create</span>
+                            </a>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
-    <div class="banner">
-        <div class="col-2">
-            <img src="~/Content/Images/banner.png" alt="banner-img" />
-        </div>
-        <div class="col-2">
-            <h1>Nhà thuốc NewTyStore </h1>
-            <h1>Chung tay vì sức khỏe cộng đồng</h1>
-        </div>
-    </div>
+    <div>
+            <div class="banner">
+                <div class="col-2">
+                    <img src="~/Content/Images/banner.png" alt="banner-img" />
+                </div>
+                <div class="col-2 bx bx-fade-up">
+                    <h1>Nhà thuốc NewTyStore </h1>
+                    <h1>Chung tay vì sức khỏe cộng đồng</h1>
+                </div>
+            </div>
+        
+
+
     @*link css + link icon*@
     <link rel="stylesheet" href="~/Content/Admin-css/style-sidebar_navigation.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -66,7 +79,7 @@
                 <span class="tooltip">Capsule</span>
             </li>
             <li>
-                <a href="@Url.Action("Index", "HoaDons")" >
+                <a href="@Url.Action("Index", "HoaDons")">
                     <i class='bx bxs-store'></i>
                     <span class="link_name">Hóa đơn</span>
                 </a>
@@ -102,9 +115,8 @@
                 </li>*@
         </ul>
     </div>
-    <div class="content" style=" margin-left:100px;">
-        @RenderBody()
-    </div>
+
+
     <script>
         let btn = document.querySelector("#btn");
         let sidebar = document.querySelector(".sidebar");
@@ -113,7 +125,9 @@
         btn.onclick = function () { sidebar.classList.toggle("active"); };
         srcBtn.onclick = function () { sidebar.classList.toggle("active"); };
     </script>
-
+    <div class="content" style=" margin-left:100px;">
+        @RenderBody()
+    </div>
     <hr />
     <footer style="margin-left:10%;">
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
@@ -131,20 +145,25 @@
         }
 
         body {
-            min-width:500px;
+            min-width: 500px;
             font-family: "Poppins", sans-serif;
+        }
+        .content {
+            background: #BBD6B8;
         }
 
         .banner {
-            background: rgb(2,0,36);
+            /*background: #090037;*/
+            /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(0,0,255,1) 80%);*/
+            background: #00ADB5;
             background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(0,0,255,1) 80%);
             display: flex;
-            padding-left:10%;
             align-items: center;
             flex-wrap: wrap;
             justify-content: space-around;
             width: 100%;
             min-width: 450px;
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
         }
 
         .col-2 {
@@ -157,6 +176,7 @@
                 max-width: 70%;
                 height: 200px;
                 padding: 20px 10px;
+                padding-left: 100px;
             }
 
             .col-2 h1 {

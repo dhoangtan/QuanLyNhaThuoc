@@ -15,6 +15,9 @@
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
+                @{
+                    int dem = 1;
+                }
                 @foreach (var item in Model.Object1)
                 {
                     <div class="card-item">
@@ -24,13 +27,18 @@
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
                                 <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
+                                <div class="d-flex justify-content-between align-items-center" id="">
                                     <div class="">
-                                        <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
-                                        <div class="btn btn-outline-success" onclick="">
+                                        @{ 
+                                            var input_id = "quatity" + dem.ToString();
+                                            dem++;
+                                        }
+                                        <input class="pb-1 quantity" type="number" id="" value="1" min="1" max="@Html.ValueFor(modelItem=>item.SoLuong)">
+                                        <button type="button" class="btn btn-outline-success" onclick="addToCard(@item.MaSanPham)">
                                             <i class="bx bx-cart-add"></i>
                                             <span></span>
-                                        </div>
+
+                                        </button>
                                         <div class="btn btn-outline-danger" onclick="">
                                             <i class="bx bx-cart-download"></i>
                                             <span> Buy</span>
@@ -43,7 +51,7 @@
                 }
             </div>
         </div>
-        
+
     </div>
     <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
         <i class='bx bxs-chart text-primary'></i>
@@ -167,3 +175,14 @@
         margin-left: 5px;
     }
 </style>
+@section scripts{
+    <script>
+
+                                                    function addToCard(id){
+                                                        var url = '@Url.Action("MuaHang", "Home")';
+                                                        var txtVal = $('.quantity').val();
+                                                        console.log(url + txtVal+'......');
+                                                            window.location.href = url +'?id='+id+ '&sl=' + txtVal;
+   }
+    </script>
+}

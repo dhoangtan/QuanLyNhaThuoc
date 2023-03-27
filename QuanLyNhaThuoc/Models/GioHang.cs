@@ -11,7 +11,7 @@ namespace QuanLyNhaThuoc.Models
         [Key]
         public int MaGioHang { get; set; }
         public ApplicationUser NguoiDung { get; set; }
-        public string MaNguoiDung { get; set; }
+        public string Id { get; set; }
         [Required]
         public DateTime NgayLap { get; set; }
         public string DiaChi { get; set; }

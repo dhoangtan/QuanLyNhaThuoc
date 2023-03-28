@@ -23,6 +23,8 @@ namespace QuanLyNhaThuoc.Models
         [Required] 
         public string CongDung { get; set;}
         public string DonViTinh { get; set; }
+        public DateTime NgayNhap { get; set; }
+        public DateTime HSD { get; set; }
         public int SoLuong { get; set; }
         public string MoTa { get; set; }
         public long GiaBan { get; set; }

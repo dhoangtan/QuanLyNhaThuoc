@@ -18,7 +18,7 @@
                 {
                     <div class="#">
                         <div class="card shadow-sm">
-                            <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
@@ -54,7 +54,7 @@
                 {
                     <div class="#">
                         <div class="card shadow-sm">
-                            <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
@@ -90,7 +90,7 @@
                 {
                     <div class="#">
                         <div class="card shadow-sm">
-                            <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>

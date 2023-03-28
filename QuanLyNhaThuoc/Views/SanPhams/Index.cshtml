@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
 }
 <main>
+    <br />
     <div id="SP-Hot" class="fs-3 ms-5">
         <i class="bx bxs-hot text-danger"></i>
         <span class="text-danger"> Sản phẩm sắp hết</span>
@@ -13,7 +14,7 @@
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
-                @foreach (var item in Model.Object3)
+                @foreach (var item in Model.Object1)
                 {
                     <div class="#">
                         <div class="card shadow-sm">
@@ -49,7 +50,7 @@
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
-                @foreach (var item in Model.Object3)
+                @foreach (var item in Model.Object2)
                 {
                     <div class="#">
                         <div class="card shadow-sm">

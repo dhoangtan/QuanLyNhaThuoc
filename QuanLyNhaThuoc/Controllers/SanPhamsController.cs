@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyNhaThuoc.Models;
+using QuanLyNhaThuoc.ViewModel;
 
 namespace QuanLyNhaThuoc.Views.Home
 {
@@ -18,8 +19,16 @@ namespace QuanLyNhaThuoc.Views.Home
         [Authorize]
         public ActionResult Index()
         {
-            var sanPhams = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat);
-            return View(sanPhams.ToList());
+            var spHetSL = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).Where(sl=>sl.SoLuong<=5).ToList();
+            var spHetHSD= db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).Where(n=>n.HSD<=DateTime.Now).ToList();
+            var listsanPhams = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).ToList();
+            var viewModel = new ViewIndexModel
+            {
+                Object1 = spHetSL,
+                Object2 = spHetHSD,
+                Object3 = listsanPhams
+            };
+            return View(viewModel);
         }
 
         // GET: SanPhams/Details/5

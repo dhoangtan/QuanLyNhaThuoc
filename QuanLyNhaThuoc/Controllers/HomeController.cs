@@ -22,7 +22,7 @@ namespace QuanLyNhaThuoc.Controllers
         {
             var sanPhams = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotXem).Take(8).ToList();
             var sanPhams2 = db.sanPhams.Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotMua).Take(8).ToList();
-            var sanPhams3 = db.sanPhams.Where(s=>s.SoLuong>0).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).ToList();
+            var sanPhams3 = db.sanPhams.Where(s=>s.SoLuong>0 && s.HSD>=DateTime.Now).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).ToList();
             var viewIndexModel = new ViewIndexModel
             {
                 Object1 = sanPhams,

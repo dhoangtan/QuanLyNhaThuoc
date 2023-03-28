@@ -1,14 +1,91 @@
-﻿@model IEnumerable<QuanLyNhaThuoc.Models.SanPham>
+﻿@model QuanLyNhaThuoc.ViewModel.ViewIndexModel
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
 }
 <main>
+    <div id="SP-Hot" class="fs-3 ms-5">
+        <i class="bx bxs-hot text-danger"></i>
+        <span class="text-danger"> Sản phẩm sắp hết</span>
+        <i class="bx bxs-hot text-danger"></i>
+    </div>
     <div class="album py-5 bg-opacity-50">
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
-                @foreach (var item in Model)
+                @foreach (var item in Model.Object3)
+                {
+                    <div class="#">
+                        <div class="card shadow-sm">
+                            <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <div class="">
+                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="">
+                                        <div class="btn btn-outline-danger" onclick="location.href='@Url.Action("Delete", "SanPhams", new {id= item.MaSanPham} )'">
+                                            <i class="bx bxs-trash"></i>
+                                            <span> Delete</span>
+                                        </div>
+                                        <div class="btn btn-outline-warning" onclick="location.href='@Url.Action("Edit", "SanPhams", new {id= item.MaSanPham} )'">
+                                            <i class="bx bxs-edit"></i>
+                                            <span> Edit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="SP-Hot" class="fs-3 ms-5">
+        <i class="bx bxs-hot text-danger"></i>
+        <span class="text-danger"> Sản phẩm hết HSD</span>
+        <i class="bx bxs-hot text-danger"></i>
+    </div>
+    <div class="album py-5 bg-opacity-50">
+        <div class="container">
+            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
+                @foreach (var item in Model.Object3)
+                {
+                    <div class="#">
+                        <div class="card shadow-sm">
+                            <img src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
+                            <div class="">
+                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="">
+                                        <div class="btn btn-outline-danger" onclick="location.href='@Url.Action("Delete", "SanPhams", new {id= item.MaSanPham} )'">
+                                            <i class="bx bxs-trash"></i>
+                                            <span> Delete</span>
+                                        </div>
+                                        <div class="btn btn-outline-warning" onclick="location.href='@Url.Action("Edit", "SanPhams", new {id= item.MaSanPham} )'">
+                                            <i class="bx bxs-edit"></i>
+                                            <span> Edit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
+        <i class="bx bxs-basket text-primary"></i>
+        <span class="text-primary"> Sản phẩm</span>
+        <i class="bx bxs-basket text-primary"></i>
+    </div>
+    <div class="album py-5 bg-opacity-50">
+        <div class="container">
+            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
+                @foreach (var item in Model.Object3)
                 {
                     <div class="#">
                         <div class="card shadow-sm">

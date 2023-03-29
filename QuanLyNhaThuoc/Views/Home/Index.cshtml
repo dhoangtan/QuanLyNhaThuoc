@@ -7,20 +7,20 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <main>
     <br />
-    <div id="SP-Hot" class="fs-3 ms-5">
-        <i class="bx bxs-hot text-danger"></i>
-        <span class="text-danger"> Truy cập nhiều</span>
-        <i class="bx bxs-hot text-danger"></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Hot" class="fs-3 ms-5">
+            <i class="bx bxs-hot text-danger"></i>
+            <span class="text-danger"> Truy cập nhiều</span>
+            <i class="bx bxs-hot text-danger"></i>
+        </div>
         <div class="container">
-            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
+            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
                 @{
                     int dem = 1;
                 }
                 @foreach (var item in Model.Object1)
                 {
-                    <div class="card-item">
+                    <div class="#">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
@@ -51,19 +51,19 @@
                 }
             </div>
         </div>
-
     </div>
-    <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
-        <i class='bx bxs-chart text-primary'></i>
-        <span class="text-primary">  Bán chạy</span>
-        <i class='bx bxs-chart text-primary'></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
+    <br />
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
+            <i class='bx bxs-chart text-primary'></i>
+            <span class="text-primary">  Bán chạy</span>
+            <i class='bx bxs-chart text-primary'></i>
+        </div>
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
                 @foreach (var item in Model.Object2)
                 {
-                    <div class="card-item">
+                    <div class="#">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
@@ -90,17 +90,18 @@
             </div>
         </div>
     </div>
-    <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
-        <i class="bx bxs-basket text-primary"></i>
-        <span class="text-primary"> Sản phẩm</span>
-        <i class="bx bxs-basket text-primary"></i>
-    </div>
-    <div class="album py-5 bg-transparent">
+    <br />  
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
+            <i class="bx bxs-basket text-primary"></i>
+            <span class="text-primary"> Sản phẩm</span>
+            <i class="bx bxs-basket text-primary"></i>
+        </div>
         <div class="container">
             <div class="row row-cols-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
                 @foreach (var item in Model.Object3)
                 {
-                    <div class="card-item">
+                    <div class="#">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset="" />
                             <div class="">
@@ -130,6 +131,10 @@
 
 </main>
 <style>
+    .album {
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
     .card-item {
         margin: 10px 20px;
     }
@@ -138,8 +143,6 @@
         min-height: 300px;
         min-width: 250px;
         position: static;
-        border: 3px double #808080;
-        border-radius: 20px 30px 25px 30px / 20px 30px 25px 30px;
         padding: 10px 10px 10px 15px;
         display: flex;
     }

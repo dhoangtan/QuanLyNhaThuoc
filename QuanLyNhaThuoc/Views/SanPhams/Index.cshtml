@@ -6,12 +6,12 @@
 }
 <main>
     <br />
-    <div id="SP-Hot" class="fs-3 ms-5">
-        <i class="bx bxs-hot text-danger"></i>
-        <span class="text-danger"> Sản phẩm sắp hết</span>
-        <i class="bx bxs-hot text-danger"></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Hot" class="fs-3 ms-5">
+            <i class="bx bxs-hot text-danger"></i>
+            <span class="text-danger"> Sản phẩm sắp hết</span>
+            <i class="bx bxs-hot text-danger"></i>
+        </div>
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
                 @foreach (var item in Model.Object1)
@@ -42,12 +42,13 @@
             </div>
         </div>
     </div>
-    <div id="SP-Hot" class="fs-3 ms-5">
-        <i class="bx bxs-hot text-danger"></i>
-        <span class="text-danger"> Sản phẩm hết HSD</span>
-        <i class="bx bxs-hot text-danger"></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
+    <br />
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Hot" class="fs-3 ms-5">
+            <i class="bx bxs-hot text-danger"></i>
+            <span class="text-danger"> Sản phẩm hết HSD</span>
+            <i class="bx bxs-hot text-danger"></i>
+        </div>
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
                 @foreach (var item in Model.Object2)
@@ -78,12 +79,13 @@
             </div>
         </div>
     </div>
-    <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
-        <i class="bx bxs-basket text-primary"></i>
-        <span class="text-primary"> Sản phẩm</span>
-        <i class="bx bxs-basket text-primary"></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
+    <br />
+    <div class="album py-3 bg-opacity-50">
+        <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
+            <i class="bx bxs-basket text-primary"></i>
+            <span class="text-primary"> Sản phẩm</span>
+            <i class="bx bxs-basket text-primary"></i>
+        </div>
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
                 @foreach (var item in Model.Object3)
@@ -115,6 +117,12 @@
         </div>
     </div>
     <style>
+        .album {
+            margin-left: 1%;
+            margin-right: 1%;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
         .card {
             min-height: 300px;
             min-width: 280px;

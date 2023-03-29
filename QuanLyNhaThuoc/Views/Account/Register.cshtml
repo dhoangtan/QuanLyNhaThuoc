@@ -3,47 +3,67 @@
     ViewBag.Title = "Register";
 }
 
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
-        <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="row">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<div class="container2  right-panel-active" id="container2">
+    <div class="form-container register-container">
+        <div class="form1">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <h1>Register</h1>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "ConfirmPassword" })
+                <button type="submit">Register</button>
+            }
+        </div>
+    </div>
+    <div class="form-container login-container">
+        <div class="form1">
+            <h1>Login</h1>
+            <br />
+            <span class="loader"></span>
+        </div>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1 class="title">
+                    Hello <br />
+                    friends
+                </h1>
+                <p>If your have an account, login here and have fun</p>
+                <button class="ghost" id="login">
+                    Login <i class="lni lni-arrow-left login"></i>
+                </button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1 class="title">
+                    Start your <br />
+                    journy now
+                </h1>
+                <p>
+                    If you don't have an account yet, join us and start your journey.
+                </p>
+                <button class="ghost" id="register">
+                    Register <i class="lni lni-arrow-right register"></i>
+                </button>
             </div>
         </div>
-        <div class="row">
-            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="row">
-            <div class="offset-md-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-outline-dark" />
-            </div>
-        </div>
-    }
-</main>
+    </div>
+</div>
+<script src="~/Scripts/script-login.js"></script>
+<link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Admin-css/style-login.css" />
 
 @section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#login').click(function () {
+                setTimeout(function () { window.location.href = '@Url.Action("Login", "Account", routeValues: null)'; }, 1000);
+            });
+        });
+    </script>
     @Scripts.Render("~/bundles/jqueryval")
 }

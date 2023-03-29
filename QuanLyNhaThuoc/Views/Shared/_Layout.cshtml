@@ -26,7 +26,7 @@
             </div>
         </div>
     </nav>
-    <div class="banner">
+    @*<div class="banner">
     <div class="col-2">
         <img src="~/Content/Images/banner.png" alt="banner-img" />
     </div>
@@ -34,15 +34,15 @@
         <h1>Nhà thuốc NewTyStore </h1>
         <h1>Chung tay vì sức khỏe cộng đồng</h1>
     </div>
-</div>
+</div>*@
 
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer >
+            <p style="padding-left:10%;">@DateTime.Now.Year - Nhà thuốc NewTyStore đồng hành cùng sức khỏe khách hàng</pstyle="padding-left:10%;">
         </footer>
     </div>
 
@@ -64,7 +64,7 @@
             background: #BBD6B8;
         }
 
-        .banner {
+        /*.banner {
             background: rgb(2,0,36);
             background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(0,0,255,1) 80%);
             display: flex;
@@ -74,7 +74,7 @@
             width: 100%;
             min-width: 450px;
             box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
-        }
+        }*/
         
 
         .col-2 {

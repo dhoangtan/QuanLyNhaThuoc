@@ -35,6 +35,7 @@ namespace QuanLyNhaThuoc.Views.Home
         [Authorize]
         public ActionResult Details(string id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -153,6 +154,11 @@ namespace QuanLyNhaThuoc.Views.Home
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        [Authorize]
+        public ActionResult ThongKe()
+        {
+            return View();
         }
     }
 }

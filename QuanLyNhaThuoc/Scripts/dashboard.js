@@ -1,14 +1,5 @@
 /* globals Chart:false, feather:false */
 const list = $('#mylist').data('list');
-let currentDate = new Date();
-let day = currentDate.getDate();
-let month = currentDate.getMonth() + 1;
-let year = currentDate.getFullYear();
-let dateString = month + "-" + day + "-" + year;
-console.log(dateString);
-
-console.log(Date.now() - 7 * 24 * 60 * 60 * 1000);
-console.log(list);
 (function () {
   'use strict'
 
@@ -22,11 +13,11 @@ console.log(list);
         const date = new Date(sevenDaysAgo.getTime() + i * 24 * 60 * 60 * 1000);
         let day = date.getDate();
         let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        let formatDate = `${day}/${month}/${year}`;
+        /*let year = date.getFullYear();
+        let formatDate = `${day}/${month}/${year}`;*/
+        let formatDate = `${day}/${month}`;
         listDate.push(formatDate);
     }
-    console.log(listDate);
   var myChart = new Chart(ctx, {
     type: 'line',
       data: {

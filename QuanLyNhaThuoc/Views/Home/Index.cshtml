@@ -20,22 +20,21 @@
                     <div class="card-item">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
-                            <div class="">
+                            <div class="product-item">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
-                                    <div class="product-item">
+                                <h6 class="amount-label">
+                                    <span>Số lượng còn: </span>
+                                    <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
+                                </h6>
+                                <div class="d-flex justify-content-between align-items-center functional-section">
+                                    <div class="product-item-function">
                                         <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
                                         <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
                                         <button type="button" class="add-to-cart-btn btn btn-outline-success">
                                             <i class="bx bx-cart-add"></i>
                                             <span>Add to cart</span>
                                         </button>
-                                        @* <div class="btn btn-outline-danger"> *@
-                                        @*     <i class="bx bx-cart-download"></i> *@
-                                        @*     <span> Buy</span> *@
-                                        @* </div> *@
                                     </div>
                                 </div>
                             </div>
@@ -59,22 +58,21 @@
                     <div class="card-item">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
-                            <div class="">
+                            <div class="product-item">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
-                                    <div class="product-item">
+                                <h6 class="amount-label">
+                                    <span>Số lượng còn: </span>
+                                    <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
+                                </h6>
+                                <div class="d-flex justify-content-between align-items-center functional-section">
+                                    <div class="product-item-function">
                                         <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
                                         <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
                                         <button type="button" class="add-to-cart-btn btn btn-outline-success">
                                             <i class="bx bx-cart-add"></i>
                                             <span>Add to cart</span>
                                         </button>
-                                        @* <div class="btn btn-outline-danger"> *@
-                                        @*     <i class="bx bx-cart-download"></i> *@
-                                        @*     <span> Buy</span> *@
-                                        @* </div> *@
                                     </div>
                                 </div>
                             </div>
@@ -97,22 +95,21 @@
                     <div class="card-item">
                         <div class="card shadow-sm">
                             <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
-                            <div class="">
+                            <div class="product-item">
                                 <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
                                 <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                                <h6>Số lượng còn: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
-                                <div class="d-flex justify-content-between align-items-center" id="functional-section">
-                                    <div class="product-item">
+                                <h6 class="amount-label">
+                                    <span>Số lượng còn: </span>
+                                    <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
+                                </h6>
+                                <div class="d-flex justify-content-between align-items-center functional-section">
+                                    <div class="product-item-function">
                                         <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
                                         <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
                                         <button type="button" class="add-to-cart-btn btn btn-outline-success">
                                             <i class="bx bx-cart-add"></i>
                                             <span>Add to cart</span>
                                         </button>
-                                        @* <div class="btn btn-outline-danger"> *@
-                                        @*     <i class="bx bx-cart-download"></i> *@
-                                        @*     <span> Buy</span> *@
-                                        @* </div> *@
                                     </div>
                                 </div>
                             </div>
@@ -174,23 +171,27 @@
 @section scripts{
     <script>
         $(document).ready(function () {
-            let productItem = $(".product-item");
+            let productItem = $(".product-item-function");
             let addToCartButton = productItem.children(".add-to-cart-btn");
             addToCartButton.click(function (e) {
-                e.preventDefault()
                 let amountInput = $(e.target).siblings(".amount").first();
                 let productIdInput = $(e.target).siblings(".product-id").first();
-                
+
                 let amount = amountInput.val();
                 let id = productIdInput.val();
-                
+
                 if (amount === undefined || id === undefined)
                     return;
-                
-                let url = "api/GioHangApi/AddToCart?productId=" + id + "&amount=" + amount;
-                $.get(url)
+
+                // let url = "api/GioHangApi/AddToCart?productId=" + id + "&amount=" + amount;
+                let url = "api/GioHangApi/AddToCart";
+                $.post(url, {
+                    productId: id, 
+                    amount: amount
+                })
                 .done(function () {
                     amountInput.val(1);
+                    alert("DONE");
                 })
                 .fail(function () {
                     alert("FAILED");

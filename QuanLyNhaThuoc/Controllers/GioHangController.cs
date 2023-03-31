@@ -31,6 +31,16 @@ namespace QuanLyNhaThuoc.Controllers
             ViewBag.Name = user.Name;
             ViewBag.Phone = user.PhoneNumber;
             var cart = _dbContext.gioHangs.FirstOrDefault(c => c.Id == userId);
+            if (cart == null)
+            {
+                cart = new GioHang
+                {
+                    Id = userId,
+                    NgayLap = DateTime.Now,
+                };
+                _dbContext.gioHangs.Add(cart);
+                _dbContext.SaveChanges();
+            }
             var cartDetail = _dbContext
                 .chiTietGioHangs.Where(cd => cd.MaGiohang == cart.MaGioHang)
                 .Include(s => s.SanPham)

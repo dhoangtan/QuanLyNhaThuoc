@@ -10,11 +10,9 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-
-<<<<<<< HEAD
         <ul class="navbar-nav navbar-right">
             <li>
-                <div class="btn btn-danger" onclick="location.href='@Url.Action("Create", "SanPhams")'">
+                <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
                     <i class="bx bxs-shopping-bag"></i>
                     <span> Cart</span>
                 </div>
@@ -27,48 +25,20 @@
             </li>
             <li><a class="btn btn-danger" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
-=======
-<ul class="navbar-nav navbar-right">
-    <li>
-        <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
-            <i class="bx bxs-shopping-bag"></i>
-            <span> Cart</span>
-        </div>
-    </li>
-   <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-danger" })
-    </li>
-    <li><a class="btn btn-danger" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-</ul>
->>>>>>> origin/cart-feature
     }
 }
 else
 {
-<<<<<<< HEAD
     <ul class="navbar-nav navbar-right">
-        @if (@Request.Url.AbsolutePath == @"/")
+        @if (@Request.Url.AbsolutePath==@"/")
         {
             <li>
-                <div class="btn btn-danger" onclick="location.href='@Url.Action("GioHang", "Home")'">
+                <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
                     <i class="bx bxs-shopping-bag"></i>
                     <span> Cart</span>
                 </div>
             </li>
         }
-=======
-<ul class="navbar-nav navbar-right">
-    @if (@Request.Url.AbsolutePath==@"/")
-    {
-        <li>
-            <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
-                <i class="bx bxs-shopping-bag"></i>
-                <span> Cart</span>
-            </div>
-        </li>
-    }
->>>>>>> origin/cart-feature
-
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-danger" })</li>
         <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-danger" })</li>
     </ul>

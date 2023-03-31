@@ -67,6 +67,11 @@ namespace QuanLyNhaThuoc.Controllers
                 _dbContext.chiTietHoaDons.AddOrUpdate(billDetail);
             }
 
+            foreach (var item in cartDetail)
+            {
+                _dbContext.chiTietGioHangs.Remove(item);
+            }
+
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
         }

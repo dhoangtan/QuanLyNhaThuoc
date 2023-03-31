@@ -6,8 +6,8 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <main>
-<<<<<<< HEAD
-    <br />
+    @* <<<<<<< HEAD *@
+    <br/>
     <div class="album py-3 bg-opacity-50">
         <div id="SP-Hot" class="fs-3 ms-5">
             <i class="bx bxs-hot text-danger"></i>
@@ -16,20 +16,6 @@
         </div>
         <div class="container">
             <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
-                @{
-                    int dem = 1;
-                }
-=======
-    <br/>
-    <div id="SP-Hot" class="fs-3 ms-5">
-        <i class="bx bxs-hot text-danger"></i>
-        <span class="text-danger"> Truy cập nhiều</span>
-        <i class="bx bxs-hot text-danger"></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
-        <div class="container">
-            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
->>>>>>> origin/cart-feature
                 @foreach (var item in Model.Object1)
                 {
                     <div class="#">
@@ -56,95 +42,86 @@
                         </div>
                     </div>
                 }
-            </div>
+                </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <br />
+    @* <<<<<<< HEAD *@
+    <br/>
     <div class="album py-3 bg-opacity-50">
-        <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
-            <i class='bx bxs-chart text-primary'></i>
-            <span class="text-primary">  Bán chạy</span>
-            <i class='bx bxs-chart text-primary'></i>
-        </div>
-=======
-    <div id="SP-Trending" class="flex-grow-1 fs-3 ms-5">
-        <i class='bx bxs-chart text-primary'></i>
-        <span class="text-primary"> Bán chạy</span>
-        <i class='bx bxs-chart text-primary'></i>
-    </div>
-    <div class="album py-5 bg-opacity-50">
->>>>>>> origin/cart-feature
-        <div class="container">
-            <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
-                @foreach (var item in Model.Object2)
-                {
-                    <div class="#">
-                        <div class="card shadow-sm">
-                            <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
-                            <div class="product-item">
-                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
-                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                                <h6 class="amount-label">
-                                    <span>Số lượng còn: </span>
-                                    <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
-                                </h6>
-                                <div class="d-flex justify-content-between align-items-center functional-section">
-                                    <div class="product-item-function">
-                                        <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
-                                        <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
-                                        <button type="button" class="add-to-cart-btn btn btn-outline-success">
-                                            <i class="bx bx-cart-add"></i>
-                                            <span>Add to cart</span>
-                                        </button>
+            <div id="SP-Hot" class="fs-3 ms-5">
+                <i class="bx bxs-hot text-danger"></i>
+                <span class="text-danger"> Truy cập nhiều</span>
+                <i class="bx bxs-hot text-danger"></i>
+            </div>
+            <div class="container">
+                <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
+                    @foreach (var item in Model.Object2)
+                    {
+                        <div class="#">
+                            <div class="card shadow-sm">
+                                <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
+                                <div class="product-item">
+                                    <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                    <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                    <h6 class="amount-label">
+                                        <span>Số lượng còn: </span>
+                                        <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
+                                    </h6>
+                                    <div class="d-flex justify-content-between align-items-center functional-section">
+                                        <div class="product-item-function">
+                                            <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
+                                            <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
+                                            <button type="button" class="add-to-cart-btn btn btn-outline-success">
+                                                <i class="bx bx-cart-add"></i>
+                                                <span>Add to cart</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    }
                     </div>
-                }
             </div>
         </div>
-    </div>
-    <br />  
+    <br/>
     <div class="album py-3 bg-opacity-50">
-        <div id="SP-Basket" class="flex-grow-1 fs-3 ms-5">
-            <i class="bx bxs-basket text-primary"></i>
-            <span class="text-primary"> Sản phẩm</span>
-            <i class="bx bxs-basket text-primary"></i>
-        </div>
-        <div class="container">
-            <div class="row row-cols-1 row-cols-2 row-cols-dm-3 row-cols-dm-4 row-cols-sm-5 g-5">
-                @foreach (var item in Model.Object3)
-                {
-                    <div class="#">
-                        <div class="card shadow-sm">
-                            <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
-                            <div class="product-item">
-                                <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
-                                <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
-                                <h6 class="amount-label">
-                                    <span>Số lượng còn: </span>
-                                    <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
-                                </h6>
-                                <div class="d-flex justify-content-between align-items-center functional-section">
-                                    <div class="product-item-function">
-                                        <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
-                                        <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
-                                        <button type="button" class="add-to-cart-btn btn btn-outline-success">
-                                            <i class="bx bx-cart-add"></i>
-                                            <span>Add to cart</span>
-                                        </button>
+            <div id="SP-Hot" class="fs-3 ms-5">
+                <i class="bx bxs-hot text-danger"></i>
+                <span class="text-danger"> Truy cập nhiều</span>
+                <i class="bx bxs-hot text-danger"></i>
+            </div>
+            <div class="container">
+                <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
+                    @foreach (var item in Model.Object3)
+                    {
+                        <div class="#">
+                            <div class="card shadow-sm">
+                                <img onclick="location.href='@Url.Action("Details", "Home", new { id = item.MaSanPham })'" src="@Html.DisplayFor(modelItem => item.MoTa)" alt="" srcset=""/>
+                                <div class="product-item">
+                                    <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                                    <h6>@Html.DisplayFor(modelItem => item.GiaBan)đ/@Html.DisplayFor(modelItem => item.DonViTinh) </h6>
+                                    <h6 class="amount-label">
+                                        <span>Số lượng còn: </span>
+                                        <span class="amount-value">@Html.DisplayFor(modelItem => item.SoLuong)</span>
+                                    </h6>
+                                    <div class="d-flex justify-content-between align-items-center functional-section">
+                                        <div class="product-item-function">
+                                            <input class="product-id" type="hidden" name="productId" value="@Html.ValueFor(modelItem => item.MaSanPham)"/>
+                                            <input class="pb-1 amount" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(modelItem => item.SoLuong)">
+                                            <button type="button" class="add-to-cart-btn btn btn-outline-success">
+                                                <i class="bx bx-cart-add"></i>
+                                                <span>Add to cart</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    }
                     </div>
-                }
             </div>
         </div>
-    </div>
-
 </main>
 <style>
     .album {

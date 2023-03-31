@@ -40,20 +40,27 @@ namespace QuanLyNhaThuoc.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult Buy()
+        public ActionResult Buy(string name, string address, string phone)
         {
             var userId = User.Identity.GetUserId();
             var cart = _dbContext.gioHangs.FirstOrDefault(c => c.Id == userId);
+            List<ChiTietGioHang> cartDetail =
+                _dbContext.chiTietGioHangs.Where(cd => cd.MaGiohang == cart.MaGioHang).ToList();
+            
+            if (cartDetail.Count == 0 || cartDetail == null)
+                return RedirectToAction("Index", "GioHang");
+
             HoaDon bill = new HoaDon
             {
                 Id = userId,
-                NgayXuat = DateTime.Now
+                NgayXuat = DateTime.Now,
+                TenNguoiDat = name,
+                DiaChi = address,
+                SoDienThoai = phone
             };
             _dbContext.hoaDons.Add(bill);
             _dbContext.SaveChanges();
 
-            List<ChiTietGioHang> cartDetail =
-                _dbContext.chiTietGioHangs.Where(cd => cd.MaGiohang == cart.MaGioHang).ToList();
 
             foreach (var item in cartDetail)
             {
@@ -62,9 +69,11 @@ namespace QuanLyNhaThuoc.Controllers
                 billDetail.HoaDon = bill;
                 billDetail.MaSanPham = item.MaSanPham;
                 billDetail.SoLuong = item.SoLuong;
-                var donGia = _dbContext.sanPhams.FirstOrDefault(sp => sp.MaSanPham == item.MaSanPham).GiaBan;
-                billDetail.DonGia = donGia;
+                var sanPham =  _dbContext.sanPhams.FirstOrDefault(sp => sp.MaSanPham == item.MaSanPham);
+                sanPham.SoLuong -= item.SoLuong;
+                billDetail.DonGia = sanPham.GiaBan;
                 _dbContext.chiTietHoaDons.AddOrUpdate(billDetail);
+                _dbContext.sanPhams.AddOrUpdate(sanPham);
             }
 
             foreach (var item in cartDetail)

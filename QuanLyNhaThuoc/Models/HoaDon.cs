@@ -14,5 +14,8 @@ namespace QuanLyNhaThuoc.Models
         public string Id { set; get; }
         [Required]
         public DateTime NgayXuat { set; get; }
+        public string TenNguoiDat { get; set; }
+        public string SoDienThoai { get; set; }
+        public string DiaChi { get; set; }
     }
 }

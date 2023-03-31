@@ -235,6 +235,18 @@
     <Compile Include="Migrations\202303281107556_add2ColumNgay.Designer.cs">
       <DependentUpon>202303281107556_add2ColumNgay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303310508575_UpdateGioHangFields.cs" />
+    <Compile Include="Migrations\202303310508575_UpdateGioHangFields.designer.cs">
+      <DependentUpon>202303310508575_UpdateGioHangFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303310510192_UpdateGioHangAndHoaDonFields.cs" />
+    <Compile Include="Migrations\202303310510192_UpdateGioHangAndHoaDonFields.designer.cs">
+      <DependentUpon>202303310510192_UpdateGioHangAndHoaDonFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303310515245_AddNameColumnToHoaDon.cs" />
+    <Compile Include="Migrations\202303310515245_AddNameColumnToHoaDon.designer.cs">
+      <DependentUpon>202303310515245_AddNameColumnToHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -471,6 +483,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303281107556_add2ColumNgay.resx">
       <DependentUpon>202303281107556_add2ColumNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303310508575_UpdateGioHangFields.resx">
+      <DependentUpon>202303310508575_UpdateGioHangFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303310510192_UpdateGioHangAndHoaDonFields.resx">
+      <DependentUpon>202303310510192_UpdateGioHangAndHoaDonFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303310515245_AddNameColumnToHoaDon.resx">
+      <DependentUpon>202303310515245_AddNameColumnToHoaDon.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

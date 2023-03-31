@@ -27,18 +27,18 @@
         </div>
         <div class="col">
             <p class="display-6">Thông tin chi tiết</p>
-            <form action="/GioHang/Buy" class="d-flex flex-column justify-content-center align-content-center" onsubmit=" onBuyFormSubmit()">
+            <form action="/GioHang/Buy" class="d-flex flex-column justify-content-center align-content-center" onsubmit="onBuyFormSubmit()">
                 <div class="mb-3">
                     <label for="name" class="form-label">Họ và Tên</label>
-                    <input type="text" name="name" class="form-control" value="@ViewBag.Name"/>
+                    <input type="text" id="name" name="name" class="form-control" value="@ViewBag.Name"/>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="text" name="phone" class="form-control" value="@ViewBag.Phone"/>
+                    <input type="text" id="phone" name="phone" class="form-control" value="@ViewBag.Phone"/>
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Địa chỉ giao hàng</label>
-                    <input type="text" name="address" class="form-control"/>
+                    <input type="text" id="address" name="address" class="form-control"/>
                 </div>
                 
                 <button type="submit" class="btn btn-success">
@@ -60,6 +60,14 @@
         }
     
         function onBuyFormSubmit() {
+            let nameInp = document.getElementById("name")
+            let phoneInp = document.getElementById("phone")
+            let addressInp = document.getElementById("address")
+            if (nameInp.value == "" || phoneInp.value == "" || addressInp.value == "") {
+                alert("Empty field")
+                return false
+            }
+
             var productIds = document.getElementsByClassName("product-id")
             var amounts = document.getElementsByClassName("amount")
             
@@ -76,6 +84,7 @@
                     console.log("fail")
                 })
             }
+            return true
         }
     </script>
 }

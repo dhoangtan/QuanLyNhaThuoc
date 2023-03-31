@@ -68,34 +68,29 @@ namespace QuanLyNhaThuoc.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult MuaHang(string id, int sl)
+        [HttpGet]
+        public ActionResult MuaHang(string productId, int amount)
         {
-            String user_id = User.Identity.GetUserId().ToString();
-            var sanpham = db.sanPhams.FirstOrDefault(s => s.MaSanPham == id);
-            var gh = db.gioHangs.FirstOrDefault(s => s.Id == user_id);
-            var ctsp = db.chiTietGioHangs.Where(masp => masp.MaGiohang == gh.MaGioHang && masp.MaSanPham == id).First();
-            
-            if (sanpham != null)
+            string userId = User.Identity.GetUserId();
+            var gioHang = db.gioHangs.FirstOrDefault(cart => cart.Id == userId);
+            if (gioHang == null)
             {
-                if(ctsp.SoLuong == 0)
+                gioHang = new GioHang
                 {
-                    var ct = new ChiTietGioHang();
-                    ct.MaSanPham = id;
-                    ct.MaGiohang = gh.MaGioHang;
-                    ct.SoLuong = sl;
-                    db.chiTietGioHangs.Add(ct);
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    var update_sp= db.chiTietGioHangs.Where(masp=>masp.MaGiohang==gh.MaGioHang && masp.MaSanPham==id).First();
-                    update_sp.SoLuong = sl+ ctsp.SoLuong;
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Home");
-                }
-            }           
-            return HttpNotFound();
+                    Id = userId,
+                    NgayLap = DateTime.Now
+                };
+                db.gioHangs.Add(gioHang);
+            }
+            ChiTietGioHang cartDetail = new ChiTietGioHang
+            {
+                MaGiohang = gioHang.MaGioHang,
+                MaSanPham = productId,
+                SoLuong = amount
+            };
+            db.chiTietGioHangs.Add(cartDetail);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

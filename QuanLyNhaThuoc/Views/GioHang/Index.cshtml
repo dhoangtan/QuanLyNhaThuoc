@@ -1,0 +1,81 @@
+﻿@model IEnumerable<QuanLyNhaThuoc.Models.ChiTietGioHang>
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+<div class="container container-fluid">
+    <div class="row">
+        <div class="col">
+            <p class="display-6">Danh sách sản phẩm</p>
+            @foreach (var item in Model)
+            {
+                <form target="_blank" class="row mt-5" action="/GioHang/RemoveItem" method="post">
+                    @Html.HiddenFor(modelItem => item.MaSanPham, new { @class = "product-id", Name = "productId"})
+                    <div class="image-section col text-center">
+                        <img class="w-75" src="@Html.ValueFor(modelItem => item.SanPham.MoTa)"/>
+                    </div>
+                    <div class="infor-section col">
+                        <p>@Html.ValueFor(modelItem => item.SanPham.TenSanPham)</p>
+                        <input type="number" name="amount" class="form-control amount" contenteditable="false" min="1" max="@Html.ValueFor(modelItem => item.SanPham.SoLuong)" value="@Html.ValueFor(modelItem => item.SoLuong)"/>
+                    </div>
+                    <div class="col d-flex flex-column justify-content-center">
+                        <button type="submit" class="btn btn-danger m-5">
+                            Xóa
+                        </button>
+                    </div>
+                </form>
+            }
+        </div>
+        <div class="col">
+            <p class="display-6">Thông tin chi tiết</p>
+            <form action="/GioHang/Buy" class="d-flex flex-column justify-content-center align-content-center" onsubmit=" onBuyFormSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Họ và Tên</label>
+                    <input type="text" name="name" class="form-control" value="@ViewBag.Name"/>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" name="phone" class="form-control" value="@ViewBag.Phone"/>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Địa chỉ giao hàng</label>
+                    <input type="text" name="address" class="form-control"/>
+                </div>
+                
+                <button type="submit" class="btn btn-success">
+                    Mua hàng 
+                </button>
+                 
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        function deleteItem(element) {
+            let formSection = element.parentElement.parentElement
+            let productId = formSection.childNodes[0].nodeValue;
+            console.log(productId)
+        }
+    
+        function onBuyFormSubmit() {
+            var productIds = document.getElementsByClassName("product-id")
+            var amounts = document.getElementsByClassName("amount")
+            
+            for (let i = 0; i<@Model.Count(); i++) {
+                console.log(productIds.item(i).value)
+                console.log(amounts.item(i).value)
+                
+                $.post("api/GioHangApi/UpdateCart", {
+                    productId: productIds.item(i).value,
+                    amount: amounts.item(i).value
+                }).done(function () {
+                    console.log("done")
+                }).fail(function () {
+                    console.log("fail")
+                })
+            }
+        }
+    </script>
+}

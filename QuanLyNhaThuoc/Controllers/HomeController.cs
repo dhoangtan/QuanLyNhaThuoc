@@ -21,7 +21,7 @@ namespace QuanLyNhaThuoc.Controllers
         public ActionResult Index()
         {
             var sanPhams = db.sanPhams.Where(s => s.SoLuong > 0 && s.HSD >= DateTime.Now).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotXem).Take(8).ToList();
-            var sanPhams2 = db.sanPhams.Where(s => s.SoLuong > 0 && s.HSD >= DateTime.Now).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotMua).Take(10).ToList();
+            var sanPhams2 = db.sanPhams.Where(s=>s.SoLuong>0 && s.HSD>=DateTime.Now).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).OrderByDescending(s => s.LuotMua).Take(10).ToList();
             var sanPhams3 = db.sanPhams.Where(s=>s.SoLuong>0 && s.HSD>=DateTime.Now).Include(s => s.LoaiSanPham).Include(s => s.NhaSanXuat).ToList();
             var viewIndexModel = new ViewIndexModel
             {
@@ -64,30 +64,5 @@ namespace QuanLyNhaThuoc.Controllers
             return View(sanPham);
         }
         
-        [Authorize]
-        [HttpGet]
-        public ActionResult MuaHang(string productId, int amount)
-        {
-            string userId = User.Identity.GetUserId();
-            var gioHang = db.gioHangs.FirstOrDefault(cart => cart.Id == userId);
-            if (gioHang == null)
-            {
-                gioHang = new GioHang
-                {
-                    Id = userId,
-                    NgayLap = DateTime.Now
-                };
-                db.gioHangs.Add(gioHang);
-            }
-            ChiTietGioHang cartDetail = new ChiTietGioHang
-            {
-                MaGiohang = gioHang.MaGioHang,
-                MaSanPham = productId,
-                SoLuong = amount
-            };
-            db.chiTietGioHangs.Add(cartDetail);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
     }
 }

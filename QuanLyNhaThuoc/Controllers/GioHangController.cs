@@ -68,6 +68,7 @@ namespace QuanLyNhaThuoc.Controllers
                 DiaChi = address,
                 SoDienThoai = phone
             };
+
             _dbContext.hoaDons.Add(bill);
             _dbContext.SaveChanges();
 

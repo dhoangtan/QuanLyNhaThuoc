@@ -247,6 +247,18 @@
     <Compile Include="Migrations\202303310515245_AddNameColumnToHoaDon.designer.cs">
       <DependentUpon>202303310515245_AddNameColumnToHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303311528191_hoadon_notnull.cs" />
+    <Compile Include="Migrations\202303311528191_hoadon_notnull.Designer.cs">
+      <DependentUpon>202303311528191_hoadon_notnull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303311716484_hoadon_null.cs" />
+    <Compile Include="Migrations\202303311716484_hoadon_null.Designer.cs">
+      <DependentUpon>202303311716484_hoadon_null.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304011401039_IsCanceled_SP.cs" />
+    <Compile Include="Migrations\202304011401039_IsCanceled_SP.Designer.cs">
+      <DependentUpon>202304011401039_IsCanceled_SP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -262,6 +274,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\SanPhamsController.cs" />
+    <Compile Include="ViewModel\ViewHoaDonModel.cs" />
     <Compile Include="ViewModel\ViewIndexModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -326,7 +339,9 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\Admin-css\dashboard.css" />
     <Content Include="Content\Admin-css\style-GioHang.css" />
+    <Content Include="Content\Admin-css\style-login.css" />
     <Content Include="Content\Admin-css\style-sidebar.css" />
     <Content Include="Content\Admin-css\style-sidebar_navigation.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -345,6 +360,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\background-login.jpg" />
     <Content Include="Content\Images\banner.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -358,6 +374,7 @@
     <None Include="bin\roslyn\vbc.exe.config" />
     <None Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -368,14 +385,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script-login.js" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\HoaDons\Create.cshtml" />
     <Content Include="Views\HoaDons\Delete.cshtml" />
     <Content Include="Views\HoaDons\Details.cshtml" />
     <Content Include="Views\HoaDons\Edit.cshtml" />
     <Content Include="Views\HoaDons\Index.cshtml" />
-    <Content Include="Views\Home\GioHang.cshtml" />
-    <Content Include="Views\Home\MuaHang.cshtml" />
     <Content Include="Views\SanPhams\ThongKe.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -492,6 +508,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303310515245_AddNameColumnToHoaDon.resx">
       <DependentUpon>202303310515245_AddNameColumnToHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311528191_hoadon_notnull.resx">
+      <DependentUpon>202303311528191_hoadon_notnull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303311716484_hoadon_null.resx">
+      <DependentUpon>202303311716484_hoadon_null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304011401039_IsCanceled_SP.resx">
+      <DependentUpon>202304011401039_IsCanceled_SP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

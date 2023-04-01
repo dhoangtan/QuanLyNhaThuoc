@@ -49,6 +49,14 @@ namespace QuanLyNhaThuoc.Controllers
                 .chiTietGioHangs.Where(cd => cd.MaGiohang == cart.MaGioHang)
                 .Include(s => s.SanPham)
                 .ToList();
+
+            foreach (var detail in cartDetail)
+            {
+                if (detail.SoLuong > detail.SanPham.SoLuong)
+                {
+                    detail.SoLuong = detail.SanPham.SoLuong;
+                } 
+            }
             return View(cartDetail);
         }
 

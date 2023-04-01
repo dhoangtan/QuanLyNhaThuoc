@@ -15,6 +15,7 @@
                     </div>
                     <div class="infor-section col">
                         <p>@Html.ValueFor(modelItem => item.SanPham.TenSanPham)</p>
+                        <p style="font-size: .75rem;"><span>Còn lại: </span> <span>@Html.DisplayFor(modelItem => item.SanPham.SoLuong)</span></p>
                         <input type="number" name="amount" class="form-control amount" contenteditable="false" min="1" max="@Html.ValueFor(modelItem => item.SanPham.SoLuong)" value="@Html.ValueFor(modelItem => item.SoLuong)"/>
                     </div>
                     <div class="col d-flex flex-column justify-content-center">
@@ -27,7 +28,7 @@
         </div>
         <div class="col">
             <p class="display-6">Thông tin chi tiết</p>
-            <form action="/GioHang/Buy" class="d-flex flex-column justify-content-center align-content-center" onsubmit="onBuyFormSubmit()">
+            <div action="" class="d-flex flex-column justify-content-center align-content-center">
                 <div class="mb-3">
                     <label for="name" class="form-label">Họ và Tên</label>
                     <input type="text" id="name" name="name" class="form-control" value="@ViewBag.Name"/>
@@ -41,11 +42,11 @@
                     <input type="text" id="address" name="address" class="form-control"/>
                 </div>
                 
-                <button type="submit" class="btn btn-success">
+                <button type="button" class="btn btn-success" onclick="onBuyFormSubmit()">
                     Mua hàng 
                 </button>
                  
-            </form>
+            </div>
         </div>
     </div>
 </div>
@@ -63,28 +64,33 @@
             let nameInp = document.getElementById("name")
             let phoneInp = document.getElementById("phone")
             let addressInp = document.getElementById("address")
-            if (nameInp.value == "" || phoneInp.value == "" || addressInp.value == "") {
+
+            let name = nameInp.value
+            let phone = phoneInp.value
+            let address = addressInp.value
+            if (name == "" || phone == "" || address == "") {
                 alert("Empty field")
-                return false
+                return false;
             } else {
-                console.log("field")
-            var productIds = document.getElementsByClassName("product-id")
-            var amounts = document.getElementsByClassName("amount")
+                var productIds = document.getElementsByClassName("product-id")
+                var amounts = document.getElementsByClassName("amount")
 
-            for (let i = 0; i<@Model.Count(); i++) {
-                console.log(productIds.item(i).value)
-                console.log(amounts.item(i).value)
+                for (let i = 0; i<@Model.Count(); i++) {
+                    console.log(productIds.item(i).value)
+                    console.log(amounts.item(i).value)
 
-                $.post("api/GioHangApi/UpdateCart", {
-                    productId: productIds.item(i).value,
-                    amount: amounts.item(i).value
-                }).done(function () {
-                    console.log("done")
-                }).fail(function () {
-                    console.log("fail")
-                })
-            }
-            return true
+                    $.post("api/GioHangApi/UpdateCart", {
+                        productId: productIds.item(i).value,
+                        amount: amounts.item(i).value
+                    }).done(function () {
+                        console.log("done")
+                    }).fail(function () {
+                        console.log("fail")
+                    })
+                }
+
+                window.location.href = "/GioHang/Buy?" + "name=" + name + "&address=" + address + "&phone=" + phone
+                return true
             }
 
 

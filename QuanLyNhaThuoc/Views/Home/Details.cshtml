@@ -31,9 +31,10 @@
             <h5>Nhà sản xuất: @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat) </h5>
         </div>
         <div class="d-flex justify-content-between align-items-center" id="functional-section">
-            <div class="">
-                <input class="pb-1" type="number" id="quantity" name="quantity" value="1" min="1" max="@Html.ValueFor(model=>model.SoLuong)">
-                <div class="btn btn-outline-success" onclick="">
+            <div>
+                <input id="productId" name="productId" type="hidden" value="@Html.ValueFor(model => model.MaSanPham)"/>
+                <input class="pb-1" id="amount" name="amount" type="number" value="1" min="1" max="@Html.ValueFor(model=>model.SoLuong)" onkeydown="return false;">
+                <div class="btn btn-outline-success" id="add-to-cart-button">
                     <i class="bx bx-cart-add"></i>
                     <span></span>
                 </div>
@@ -69,3 +70,34 @@
         display: block;
     }
 </style>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            let addToCartButton = $("#add-to-cart-button")
+            addToCartButton.click(function (e) {
+                let amountInput = $("#amount")
+                let productIdInput = $("#productId");
+
+                let amount = amountInput.val();
+                let id = productIdInput.val();
+
+                if (amount === undefined || id === undefined)
+                    return;
+
+                // let url = "api/GioHangApi/AddToCart?productId=" + id + "&amount=" + amount;
+                let url = "https://localhost:44336/api/GioHangApi/AddToCart";
+                $.post(url, {
+                    productId: id, 
+                    amount: amount
+                })
+                .done(function () {
+                    window.location.href = "https://localhost:44336/Home"
+                })
+                .fail(function () {
+                });
+            });
+        });
+    </script>
+}

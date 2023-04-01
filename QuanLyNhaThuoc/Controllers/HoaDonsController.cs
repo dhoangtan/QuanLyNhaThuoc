@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyNhaThuoc.Models;
+using QuanLyNhaThuoc.ViewModel;
 
 namespace QuanLyNhaThuoc.Controllers
 {
@@ -32,87 +33,13 @@ namespace QuanLyNhaThuoc.Controllers
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
-        }
-
-        // GET: HoaDons/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: HoaDons/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHoaDon,MaNguoiDung,NgayXuat")] HoaDon hoaDon)
-        {
-            if (ModelState.IsValid)
+            var listCTHH = db.chiTietHoaDons.Where(m => m.MaHoaDon == id).ToList();
+            var viewModel = new ViewHoaDonModel
             {
-                db.hoaDons.Add(hoaDon);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(hoaDon);
-        }
-
-        // GET: HoaDons/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HoaDon hoaDon = db.hoaDons.Find(id);
-            if (hoaDon == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hoaDon);
-        }
-
-        // POST: HoaDons/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHoaDon,MaNguoiDung,NgayXuat")] HoaDon hoaDon)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(hoaDon).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(hoaDon);
-        }
-
-        // GET: HoaDons/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HoaDon hoaDon = db.hoaDons.Find(id);
-            if (hoaDon == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hoaDon);
-        }
-
-        // POST: HoaDons/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            HoaDon hoaDon = db.hoaDons.Find(id);
-            db.hoaDons.Remove(hoaDon);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                hoaDon = hoaDon,
+                list=listCTHH,
+            };
+            return View(viewModel);
         }
 
         protected override void Dispose(bool disposing)

@@ -1,4 +1,11 @@
 ﻿@model IEnumerable<QuanLyNhaThuoc.Models.HoaDon>
+@using QuanLyNhaThuoc.Models;
+@using System.Data.Entity;
+@using System;
+@using System.Collections.Generic;
+@using System.Data;
+@using System.Data.Entity;
+@using System.Linq;
 
 @{
     ViewBag.Title = "Index";
@@ -11,14 +18,17 @@
             {
                 <div class="card-item">
                     <div class="card shadow-sm">
-                        <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.MaHoaDon), "Details", new { id = item.MaHoaDon })</h5>
-                        <h6>@Html.DisplayFor(modelItem => item.NguoiDung.Name)</h6>
-                        <h6>@Html.DisplayFor(modelItem => item.NgayXuat)</h6>
-                        <h6>Tổng tiền: </h6>
+                        <h5>Id Bill: @Html.DisplayFor(modelItem => item.MaHoaDon)</h5>
+                        <h5>Name: @Html.DisplayFor(modelItem => item.NguoiDung.Name)</h5>
+                        <h6>DateTime: @Html.DisplayFor(modelItem => item.NgayXuat)</h6>
+                        @{
+                            ApplicationDbContext db = new ApplicationDbContext();
+                            var total = db.chiTietHoaDons.Where(m => m.MaHoaDon == item.MaHoaDon).Select(g => g.SoLuong * g.DonGia).Sum();
+                        }
+                        <h6>Total: @total<span>đ</span></h6>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="">
                                 <button onclick="location.href='@Url.Action("Details", "HoaDons", new {id= item.MaHoaDon} )'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button onclick="location.href='@Url.Action("Edit", "HoaDons", new {id= item.MaHoaDon} )'" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -30,31 +40,32 @@
 <style>
     .card {
         position: static;
-        min-height: 300px;
-        min-width: 280px;
-        padding: 10px 0px 10px 20px;
+        min-height: 200px;
+        min-width: 200px;
+        padding: 15px 0px 10px 20px;
         display: flex;
     }
 
-        .card img {
-            width: 80%;
-            margin-top: 1px;
-            cursor: pointer;
-        }
-    h5 {
-        height: 50px;
+    span {
+        font-size: 15px;
     }
 
-    h5 a {
+    .card img {
+        width: 80%;
+        margin-top: 1px;
+        cursor: pointer;
+    }
+
+    h5 {
         color: #000000;
         font-size: 15px;
-        text-decoration: none;
     }
 
-        .card:hover {
-            transform: translateY(-10px);
-            transition: 1s;
-        }
+
+    .card:hover {
+        transform: translateY(-10px);
+        transition: 1s;
+    }
 
     h6 {
         color: rgba(0,0,255,1);

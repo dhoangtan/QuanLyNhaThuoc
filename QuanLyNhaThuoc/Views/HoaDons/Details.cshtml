@@ -1,35 +1,98 @@
-﻿@model QuanLyNhaThuoc.Models.HoaDon
-
+﻿@model QuanLyNhaThuoc.ViewModel.ViewHoaDonModel
+@using QuanLyNhaThuoc.Models;
+@using System.Data.Entity;
+@using System;
+@using System.Collections.Generic;
+@using System.Data;
+@using System.Data.Entity;
+@using System.Linq;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutSideBarAdmin.cshtml";
 }
+<br />
+<div class="album py-3 bg-opacity-50">
+    <div>
+        <div class="ms-5" id="functional-section">
+            <div class="">
+                <div class="btn btn-outline-primary" onclick="location.href='@Url.Action("Index", "HoaDons" )'">
+                    <i class="bx bx-arrow-back"></i>
+                    <span> Back</span>
+                </div>
+            </div>
+            <h2 class="d-flex align-items-center justify-content-center">Chi tiết hóa đơn</h2>
+        </div>
+        <hr />
+        <dl class="dl-horizontal ms-5">
+            <h4>
+                Tên khách hàng: @Html.DisplayFor(model => model.hoaDon.TenNguoiDat)
+            </h4>
+            <h4>
+                Ngày đặt: @Html.DisplayFor(model => model.hoaDon.NgayXuat)
+            </h4>
 
-<h2>Details</h2>
+        </dl>
+    </div>
+    <div class="container" style="width: 80%;">
+        <div class="row row-cols-dm-1 row-cols-2 row-cols-dm-3 row-cols-sm-4 row-cols-dm-5 g-5">
+            @foreach (var item in Model.list)
+            {
+                <div class="#">
+                    <div class="card shadow-sm">
+                        @{
+                            ApplicationDbContext db = new ApplicationDbContext();
+                            var sp = db.sanPhams.Find(item.MaSanPham);
+                        }
+                        <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => sp.MoTa)" alt="" srcset="" />
+                        <div class="">
+                            <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => sp.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                            <h6>@Html.DisplayFor(modelItem => item.DonGia)đ/@Html.DisplayFor(modelItem => sp.DonViTinh) </h6>
+                            <h6>Số lượng: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
 
-<div>
-    <h4>HoaDon</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaNguoiDung)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaNguoiDung)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayXuat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayXuat)
-        </dd>
-
-    </dl>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHoaDon }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <style>
+        .album {
+            margin: 0px 10px 0px 10px;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .card {
+            position: static;
+            min-height: 200px;
+            min-width: 200px;
+            padding: 15px 0px 10px 20px;
+            display: flex;
+        }
+
+        .card img {
+            width: 80%;
+            margin-top: 1px;
+            cursor: pointer;
+        }
+
+        h5 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+            h5 a {
+                color: #000000;
+                font-size: 15px;
+                font: bold;
+                text-decoration: none;
+                display: block;
+            }
+
+        h6 {
+            color: rgba(0,0,255,1);
+            font-size: 13px;
+            margin-left: 5px;
+        }
+    </style>

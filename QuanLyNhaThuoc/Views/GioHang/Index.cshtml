@@ -58,7 +58,7 @@
             let productId = formSection.childNodes[0].nodeValue;
             console.log(productId)
         }
-    
+
         function onBuyFormSubmit() {
             let nameInp = document.getElementById("name")
             let phoneInp = document.getElementById("phone")
@@ -66,15 +66,15 @@
             if (nameInp.value == "" || phoneInp.value == "" || addressInp.value == "") {
                 alert("Empty field")
                 return false
-            }
-
+            } else {
+                console.log("field")
             var productIds = document.getElementsByClassName("product-id")
             var amounts = document.getElementsByClassName("amount")
-            
+
             for (let i = 0; i<@Model.Count(); i++) {
                 console.log(productIds.item(i).value)
                 console.log(amounts.item(i).value)
-                
+
                 $.post("api/GioHangApi/UpdateCart", {
                     productId: productIds.item(i).value,
                     amount: amounts.item(i).value
@@ -85,6 +85,9 @@
                 })
             }
             return true
+            }
+
+
         }
     </script>
 }

@@ -10,21 +10,25 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-        <ul class="navbar-nav navbar-right">
-            <li>
-                <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
-                    <i class="bx bxs-shopping-bag"></i>
-                    <span> Cart</span>
-                </div>
-            </li>
-            <li>
-                @{
-                    var name = dbContext.Users.Where(s=>s.Id==@user).Select(s => s.Name).First();
-                }
-                @Html.ActionLink(@name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-danger" })
-            </li>
-            <li><a class="btn btn-danger" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
+<ul class="navbar-nav navbar-right">
+    @if (User.Identity.Name != "admin@newty.com")
+    {
+    <li>
+    <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
+        <i class="bx bxs-shopping-bag"></i>
+        <span> Cart</span>
+    </div>
+    </li>
+    }
+    
+    <li>
+        @{
+            var name = dbContext.Users.Where(s => s.Id == @user).Select(s => s.Name).First();
+        }
+        @Html.ActionLink(@name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-danger" })
+    </li>
+    <li><a class="btn btn-danger" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>
     }
 }
 else

@@ -66,7 +66,7 @@ namespace QuanLyNhaThuoc.Views.Home
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaSanPham,TenSanPham,MaLoai,MaNhaSanXuat,ThanhPhanChinh,DoTuoi,CongDung,DonViTinh,NgayNhap,HSD,SoLuong,MoTa,GiaBan,LuotMua,LuotXem")] SanPham sanPham)
+        public ActionResult Create([Bind(Include = "MaSanPham,TenSanPham,MaLoai,MaNhaSanXuat,ThanhPhanChinh,DoTuoi,CongDung,DonViTinh,NgayNhap,HSD,SoLuong,MoTa,GiaBan,LuotMua,LuotXem,IsCanceled=false")] SanPham sanPham)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace QuanLyNhaThuoc.Views.Home
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaSanPham,TenSanPham,MaLoai,MaNhaSanXuat,ThanhPhanChinh,DoTuoi,CongDung,DonViTinh,NgayNhap,HSD,SoLuong,MoTa,GiaBan,LuotMua,LuotXem")] SanPham sanPham)
+        public ActionResult Edit([Bind(Include = "MaSanPham,TenSanPham,MaLoai,MaNhaSanXuat,ThanhPhanChinh,DoTuoi,CongDung,DonViTinh,NgayNhap,HSD,SoLuong,MoTa,GiaBan,LuotMua,LuotXem,IsCanceled=false")] SanPham sanPham)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +142,7 @@ namespace QuanLyNhaThuoc.Views.Home
         public ActionResult DeleteConfirmed(string id)
         {
             SanPham sanPham = db.sanPhams.Find(id);
-            db.sanPhams.Remove(sanPham);
+            sanPham.IsCanceled = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

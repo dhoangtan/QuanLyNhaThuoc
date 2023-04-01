@@ -30,5 +30,6 @@ namespace QuanLyNhaThuoc.Models
         public long GiaBan { get; set; }
         public int LuotMua { get; set; }
         public int LuotXem { get; set; }
+        public bool IsCanceled { get; set; }  
     }
 }

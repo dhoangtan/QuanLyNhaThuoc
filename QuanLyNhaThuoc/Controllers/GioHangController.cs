@@ -26,6 +26,10 @@ namespace QuanLyNhaThuoc.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            if (User.Identity.Name == "admin@newty.com")
+            {
+                return RedirectToAction("Index", "SanPhams");
+            }
             string userId = User.Identity.GetUserId();
             ApplicationUser user = _dbContext.Users.FirstOrDefault(u => u.Id == userId);
             ViewBag.Name = user.Name;

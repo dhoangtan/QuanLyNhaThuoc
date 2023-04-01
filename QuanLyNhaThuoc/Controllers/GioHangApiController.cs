@@ -18,7 +18,7 @@ namespace QuanLyNhaThuoc.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-
+        [Authorize]
         [HttpPost]        
         [Route("api/GioHangApi/AddToCart")]
         public IHttpActionResult AddToCart(CartItemDto dto)
@@ -55,7 +55,7 @@ namespace QuanLyNhaThuoc.Controllers
             _dbContext.SaveChanges();
             return Ok();
         }
-
+        [Authorize]
         [HttpPost]
         [Route("api/GioHangApi/RemoveFromCart")]
         public IHttpActionResult RemoveFromCart(CartItemDto dto)
@@ -71,7 +71,7 @@ namespace QuanLyNhaThuoc.Controllers
             _dbContext.SaveChanges();
             return Ok();
         }
-
+        [Authorize]
         [HttpPost]
         [Route("api/GioHangApi/UpdateCart")]
         public IHttpActionResult UpdateCart(CartItemDto dto)

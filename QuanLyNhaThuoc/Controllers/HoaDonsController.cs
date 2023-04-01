@@ -18,7 +18,7 @@ namespace QuanLyNhaThuoc.Controllers
         // GET: HoaDons
         public ActionResult Index()
         {
-            return View(db.hoaDons.ToList());
+            return View(db.hoaDons.Include(s => s.NguoiDung).OrderByDescending(s => s.MaHoaDon).ToList());
         }
 
         // GET: HoaDons/Details/5
@@ -33,7 +33,7 @@ namespace QuanLyNhaThuoc.Controllers
             {
                 return HttpNotFound();
             }
-            var listCTHH = db.chiTietHoaDons.Where(m => m.MaHoaDon == id).ToList();
+            var listCTHH = db.chiTietHoaDons.Include(s=>s.SanPham).Where(m => m.MaHoaDon == id).ToList();
             var viewModel = new ViewHoaDonModel
             {
                 hoaDon = hoaDon,

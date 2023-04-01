@@ -39,14 +39,14 @@
             {
                 <div class="#">
                     <div class="card shadow-sm">
-                        @{
+                       @* @{
                             ApplicationDbContext db = new ApplicationDbContext();
                             var sp = db.sanPhams.Find(item.MaSanPham);
-                        }
-                        <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => sp.MoTa)" alt="" srcset="" />
+                        }*@
+                        <img onclick="location.href='@Url.Action("Details", "SanPhams", new {id=item.MaSanPham} )'" src="@Html.DisplayFor(modelItem => item.SanPham.MoTa)" alt="" srcset="" />
                         <div class="">
-                            <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => sp.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
-                            <h6>@Html.DisplayFor(modelItem => item.DonGia)đ/@Html.DisplayFor(modelItem => sp.DonViTinh) </h6>
+                            <h5>@Html.ActionLink("" + @Html.DisplayFor(modelItem => item.SanPham.TenSanPham), "Details", new { id = item.MaSanPham })</h5>
+                            <h6>@Html.DisplayFor(modelItem => item.DonGia)đ/@Html.DisplayFor(modelItem => item.SanPham.DonViTinh) </h6>
                             <h6>Số lượng: @Html.DisplayFor(modelItem => item.SoLuong)</h6>
 
                         </div>

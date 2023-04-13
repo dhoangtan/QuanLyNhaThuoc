@@ -93,6 +93,7 @@ namespace QuanLyNhaThuoc.Controllers
                 billDetail.MaSanPham = item.MaSanPham;
                 billDetail.SoLuong = item.SoLuong;
                 var sanPham =  _dbContext.sanPhams.FirstOrDefault(sp => sp.MaSanPham == item.MaSanPham);
+                sanPham.LuotMua += 1;
                 sanPham.SoLuong -= item.SoLuong;
                 billDetail.DonGia = sanPham.GiaBan;
                 _dbContext.chiTietHoaDons.AddOrUpdate(billDetail);

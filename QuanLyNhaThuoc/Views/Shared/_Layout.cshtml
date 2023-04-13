@@ -8,47 +8,53 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
-        <div class="container">
-            @Html.ActionLink("NewTyStore", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    
-                    @if (User.Identity.Name != "admin@newty.com")
-                    {
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>
-                    }
-                    else 
-                    {
-                        <li>@Html.ActionLink("Admin", "Index", "SanPhams", new { area = "" }, new { @class = "btn btn-danger" }) </li> 
+    @if (@Request.Url.AbsolutePath != @"/Account/Login" && (@Request.Url.AbsolutePath != @"/Account/Register"))
+    {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger">
+            <div class="container">
+                @Html.ActionLink("NewTyStore", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        @if (User.Identity.Name != "admin@newty.com")
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>
                         }
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>*@
-                </ul>
-                @Html.Partial("_LoginPartial")
+                        else
+                        {
+                            <li>@Html.ActionLink("Admin", "Index", "SanPhams", new { area = "" }, new { @class = "btn btn-danger" }) </li>
+
+                        }
+                        @*<li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "btn btn-danger" })</li>*@
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    }
+
     @*<div class="banner">
-    <div class="col-2">
-        <img src="~/Content/Images/banner.png" alt="banner-img" />
-    </div>
-    <div class="col-2">
-        <h1>Nhà thuốc NewTyStore </h1>
-        <h1>Chung tay vì sức khỏe cộng đồng</h1>
-    </div>
-</div>*@
+            <div class="col-2">
+                <img src="~/Content/Images/banner.png" alt="banner-img" />
+            </div>
+            <div class="col-2">
+                <h1>Nhà thuốc NewTyStore </h1>
+                <h1>Chung tay vì sức khỏe cộng đồng</h1>
+            </div>
+        </div>*@
 
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
         <hr />
-        <footer >
+        <footer>
             <p style="padding-left:10%;">@DateTime.Now.Year - Nhà thuốc NewTyStore đồng hành cùng sức khỏe khách hàng</p>
         </footer>
     </div>
@@ -61,10 +67,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        body {
-            min-height: 100vh;
-            width: 100%;
         }
 
         .content {
@@ -82,7 +84,7 @@
             min-width: 450px;
             box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
         }*/
-        
+
 
         .col-2 {
             flex-basis: 50%;

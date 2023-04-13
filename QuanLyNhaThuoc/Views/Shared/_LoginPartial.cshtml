@@ -13,25 +13,45 @@
 <ul class="navbar-nav navbar-right">
     @if (User.Identity.Name != "admin@newty.com")
     {
-    <li>
-        <div class="btn btn-danger" onclick="location.href='@Url.Action("Index_KH", "HoaDons")'">
-            <i class="bx bxs-shopping-bag"></i>
-            <span> History</span>
-        </div>
-        <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
-            <i class="bx bxs-shopping-bag"></i>
-            <span> Cart</span>
-        </div>
-    </li>
+        <li>
+            <div class="btn btn-danger" onclick="location.href='@Url.Action("Index", "GioHang")'">
+                <i class="bx bxs-shopping-bag"></i>
+                <span> Cart</span>
+            </div>
+        </li>
     }
-    
-    <li>
         @{
             var name = dbContext.Users.Where(s => s.Id == @user).Select(s => s.Name).First();
         }
-        @Html.ActionLink(@name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-danger" })
+    <li class="dropdown">
+        <a class="btn btn-danger dropdown-toggle --bs-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            @name
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="@Url.Action("ChangePassword","Manage")">
+                    <i class='bx bx-id-card'></i>
+                    <span> ChangePassword</span>
+                </a>
+            </li>
+            @if (User.Identity.Name != "admin@newty.com")
+            {
+                <li>
+                    <a class="dropdown-item" href="@Url.Action("Index_KH", "HoaDons")">
+                        <i class="bx bx-clipboard"></i>
+                        <span> History</span>
+                    </a>
+                </li>
+            }
+        <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                    <i class='bx bx-log-out'></i>
+                    <span> Log off</span>
+                </a>
+            </li>
+        </ul>
     </li>
-    <li><a class="btn btn-danger" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 </ul>
     }
 }
@@ -51,3 +71,9 @@ else
         <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-danger" })</li>
     </ul>
 }
+
+<style>
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+</style>

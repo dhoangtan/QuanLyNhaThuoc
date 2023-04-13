@@ -15,6 +15,15 @@
     --blue-ryb: hsl(221, 100%, 50%);
     --white: hsl(0, 0%, 100%);
 }
+body {
+    display: flex;
+    background-color: var(--heliotrope-gray);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
 .loader {
     width: 84px;
     height: 84px;
@@ -183,6 +192,7 @@ input {
   width: 768px;
   max-width: 100%;
   min-height: 500px;
+  margin-top: 50px;
 }
 .form-container {
   position: absolute;
